@@ -1,4 +1,4 @@
-name: Deploy ANTVERSE frontend to GitHub Pages
+﻿name: Deploy ANTVERSE frontend to GitHub Pages
 
 on:
   push:
@@ -23,13 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Node toolchain (no caching)
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           check-latest: true
+          # NOTE: no caching here
 
-      # Configure Pages
       - uses: actions/configure-pages@v5
 
       - name: Install deps
@@ -40,7 +39,6 @@ jobs:
         run: |
           set -e
           mkdir -p ../_site
-
           if [ -f next.config.js ] || [ -d pages ] || [ -d app ]; then
             echo "-> Next.js detected"
             npm run export || (npm run build && npm run export)
@@ -54,8 +52,6 @@ jobs:
             npm run build
             cp -r build/* ../_site/
           fi
-
-          # Static site flags
           touch ../_site/.nojekyll
           echo "bmverse.io" > ../_site/CNAME
 
