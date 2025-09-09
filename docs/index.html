@@ -1,0 +1,172 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ANTVERSE  BMverse</title>
+<meta name="description" content="ANTVERSE  a BMverse ecosystem project." />
+<link rel="icon" href="data:," />
+<style>
+  :root{
+    --bg: #0e1018;
+    --green: #68c23a;
+    --mag: #ff21a6;
+    --fg: #e8ecf1;
+    --fg-dim: #a9b0be;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial}
+  a{color:var(--green);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.04em}
+  .brand-badge{width:10px;height:10px;border-radius:50%;background:var(--mag);box-shadow:0 0 12px var(--mag)}
+  .nav a{margin-left:18px;color:#dbe1ea}
+  .btn{background:var(--green);color:#0b0d12;border:none;border-radius:999px;padding:10px 16px;font-weight:700}
+  .btn:hover{filter:brightness(1.05);cursor:pointer}
+
+  /* Hero with parallax layers */
+  .hero{position:relative;min-height:72vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+  .hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;margin:0 0 12px}
+  .hero p{color:var(--fg-dim);max-width:720px;margin:0 auto 20px}
+  .layer{position:absolute;inset:-10%;background:radial-gradient(1200px 500px at 50% -10%, rgba(104,194,58,.20), transparent 60%);}
+  .layer2{position:absolute;inset:-10%;background:radial-gradient(800px 350px at 70% 120%, rgba(255,33,166,.16), transparent 65%);}
+  .stars{position:absolute;inset:0;background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 0 1px, transparent 1px) 0 0/120px 120px,
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.25) 0 1px, transparent 1px) 0 0/160px 160px;}
+
+  section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
+  h2{font-size:clamp(24px,3.6vw,36px);margin:0 0 10px}
+  .sub{color:var(--fg-dim);margin:0 0 26px}
+
+  .grid{display:grid;gap:18px}
+  @media(min-width:820px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:18px}
+  .kickers{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+  .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+
+  .road{display:grid;gap:16px}
+  .phase h3{margin:.2rem 0 .6rem}
+  footer{padding:40px 0;color:var(--fg-dim);text-align:center}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="brand-badge"></span>ANTVERSE</div>
+      <nav>
+        <a href="#vision">Vision</a>
+        <a href="#traits">Traits</a>
+        <a href="#team">Team</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#markets">Markets</a>
+      </nav>
+      <a class="btn" href="#markets">Launch</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="layer" data-speed="0.2"></div>
+    <div class="layer2" data-speed="0.35"></div>
+    <div class="stars" data-speed="0.05"></div>
+    <div class="container">
+      <h1>ANTVERSE</h1>
+      <p>Part of the BMverse ecosystem  fusing finance, traits, and on-chain experiences. Powered by a unique traits system, 12 Elements & 8 Magic domains.</p>
+      <div class="kickers">
+        <span class="tag">12 Elements</span>
+        <span class="tag">8 Magic</span>
+        <span class="tag">Traits Engine</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision">
+    <div class="container">
+      <h2>Vision</h2>
+      <p class="sub">Create a universal traits layer and gamified economy connecting DeFi, education, and creative work under the BMverse umbrella.</p>
+      <div class="grid cols-3">
+        <div class="card"><strong>Elements</strong><br/>Earth, Water, Wind, Fire, Thunder, Ice, Force, Time, Flower, Shadow, Light, Moon.</div>
+        <div class="card"><strong>Magic</strong><br/>Air, Fire, Water, Earth, Darkness, Light, Metal, Nature.</div>
+        <div class="card"><strong>Utilities</strong><br/>NFT traits, governance, liquidity programs, cross-chain presence.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="traits">
+    <div class="container">
+      <h2>Traits</h2>
+      <p class="sub">The ANTVERSE Traits Engine maps personality/skills to chain-native utility and collectibles.</p>
+      <div class="grid cols-3">
+        <div class="card"> <strong>Mintable Traits</strong><br/>Collect, combine, and evolve.</div>
+        <div class="card"> <strong>Cross-Chain</strong><br/>BSC & Solana first, more to come.</div>
+        <div class="card"> <strong>Governance</strong><br/>Community-led feature rollouts.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <h2>Team</h2>
+      <p class="sub">The minds behind ANTVERSE and BMverse.</p>
+      <div class="grid cols-3">
+        <div class="card"><strong>Hesam Khalaj</strong><br/>Founder & CEO  vision, product, and ecosystem.</div>
+        <div class="card"><strong>Sefa</strong><br/>Former COO  advisory on ops and growth.</div>
+        <div class="card"><strong>Core Devs</strong><br/>Tokenomics, smart contracts, DeFi, and NFTs.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="container">
+      <h2>Roadmap</h2>
+      <div class="road">
+        <div class="card phase">
+          <h3>Q1 2025  Launch ANTVERSE Core</h3>
+          <ul><li>Token (BEP20 + Solana)</li><li>Traits Engine</li><li>Landing website</li></ul>
+        </div>
+        <div class="card phase">
+          <h3>Q2 2025  Ecosystem Expansion</h3>
+          <ul><li>DEX integrations</li><li>NFT Trait Collection</li><li>Governance beta</li></ul>
+        </div>
+        <div class="card phase">
+          <h3>Q3 2025  DeFi & Partnerships</h3>
+          <ul><li>Liquidity programs</li><li>Strategic partners</li><li>External integrations</li></ul>
+        </div>
+        <div class="card phase">
+          <h3>Q4 2025  Global Adoption</h3>
+          <ul><li>Cross-chain bridge</li><li>Mobile app</li><li>BMverse full alignment</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="markets">
+    <div class="container">
+      <h2>Markets</h2>
+      <p class="sub">Trade ANTVERSE liquidity on supported chains.</p>
+      <div class="grid cols-2">
+        <a class="card" href="https://www.geckoterminal.com/bsc/pools/0x747b21a218382eae91d7479e51093a5a49ccc3dd" target="_blank" rel="noopener"> BSC Pool (GeckoTerminal)</a>
+        <a class="card" href="https://www.geckoterminal.com/solana/pools/4HpWcnTQZo3F4FZSeAEiDE9KtivoJjmKwxJGuWFzruzy" target="_blank" rel="noopener"> Solana Pool (GeckoTerminal)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container"> ANTVERSE  Part of BMverse  Made with </div>
+  </footer>
+
+<script>
+  // Tiny parallax
+  const layers = document.querySelectorAll('[data-speed]');
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    layers.forEach(el => {
+      const sp = parseFloat(el.dataset.speed||0);
+      el.style.transform = 	ranslate3d(0,px,0);
+    });
+  }, {passive:true});
+</script>
+</body>
+</html>
