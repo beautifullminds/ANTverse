@@ -23,17 +23,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Node toolchain (no explicit cache path to avoid lockfile resolution errors)
+      # Node toolchain (no caching)
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          check-latest: true
 
-      # Configure Pages (recommended by GitHub for static deployments)
+      # Configure Pages
       - uses: actions/configure-pages@v5
 
       - name: Install deps
         run: |
-          if [ -f package-lock.json ]; then npm ci; else npm i; fi
+          if [ -f package-lock.json ]; then npm ci; else npm i --no-audit --fund=false; fi
 
       - name: Detect & Build
         run: |
@@ -54,10 +55,8 @@ jobs:
             cp -r build/* ../_site/
           fi
 
-          # Make sure Pages serves as a pure static site (no Jekyll processing)
+          # Static site flags
           touch ../_site/.nojekyll
-
-          # Custom domain
           echo "bmverse.io" > ../_site/CNAME
 
       - name: Upload artifact
