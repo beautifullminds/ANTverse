@@ -1,0 +1,271 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ANTVERSE  BMverse</title>
+<meta name="description" content="ANTVERSE  Parallax landing built from BMverse whitepaper: 12 Elements, 8 Magic, Traits Engine, roadmap, markets." />
+<link rel="icon" href="data:," />
+<meta property="og:title" content="ANTVERSE  BMverse" />
+<meta property="og:description" content="The first super dApps in the world  traits-driven Web3 ecosystem." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bmverse.io/" />
+<meta name="theme-color" content="#0e1018" />
+<style>
+  :root{
+    --bg:#0e1018; /* graphite background from logo */
+    --fg:#e8ecf1; --fg-dim:#a9b0be;
+    --green:#68c23a; /* ANTVERSE green */
+    --mag:#ff21a6;   /* magenta star */
+    --card:rgba(255,255,255,.06); --card-brd:rgba(255,255,255,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial}
+  a{color:var(--green);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px}
+  .grow{flex:1}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
+  .badge{width:10px;height:10px;border-radius:50%;background:var(--mag);box-shadow:0 0 12px var(--mag)}
+  .nav a{color:#dbe1ea;margin-left:18px}
+  .btn{background:var(--green);color:#0b0d12;border:none;border-radius:999px;padding:10px 16px;font-weight:700}
+
+  .hero{position:relative;min-height:78vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.04;margin:0 0 10px}
+  .hero p{color:var(--fg-dim);max-width:760px;margin:0 auto 22px}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .layer{position:absolute;inset:-10%;background:radial-gradient(1200px 500px at 50% -10%, rgba(104,194,58,.20), transparent 60%);}
+  .layer2{position:absolute;inset:-10%;background:radial-gradient(900px 380px at 70% 120%, rgba(255,33,166,.17), transparent 65%);}
+  .stars{position:absolute;inset:0;background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 0 1px, transparent 1px) 0 0/120px 120px,
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.25) 0 1px, transparent 1px) 0 0/160px 160px;}
+  .kickers{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+
+  section.sec{padding:72px 0;border-top:1px solid rgba(255,255,255,.06);position:relative}
+  .sec .head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .sec .title{font-size:clamp(26px,3.6vw,38px);margin:0}
+  .sec .kicker{letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);font-size:12px}
+  .sec .sub{color:var(--fg-dim);margin:0 0 26px}
+  .grid{display:grid;gap:18px}
+  @media(min-width:820px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+  .card{background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:18px}
+
+  footer{padding:42px 0;color:var(--fg-dim);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+  .socials{margin-top:14px;display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+  .socials a{color:var(--fg);font-weight:500;display:flex;align-items:center;gap:6px}
+  .socials a:hover{color:var(--green)}
+  .socials svg{width:18px;height:18px;fill:currentColor}
+</style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="badge"></span>ANTVERSE</div>
+      <div class="grow"></div>
+      <nav>
+        <a href="#vision">Vision</a>
+        <a href="#elements">Elements</a>
+        <a href="#magic">Magic</a>
+        <a href="#traits">Traits</a>
+        <a href="#team">Team</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#markets">Markets</a>
+      </nav>
+      <a class="btn" href="#markets">Launch</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="layer" data-speed="0.2"></div>
+    <div class="layer2" data-speed="0.35"></div>
+    <div class="stars" data-speed="0.05"></div>
+    <div class="container">
+      <h1>ANTVERSE</h1>
+      <p>The first super dApps in the world. A decentralized platform provider of Web3 prerequisites for the next generation  part of BMverse. Parallax one-pager with uniform sections, drawn from the BMverse whitepaper.</p>
+      <div class="kickers">
+        <span class="tag">12 Elements</span>
+        <span class="tag">8 Magic</span>
+        <span class="tag">Traits Engine</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">Vision</h2>
+        </div>
+      </div>
+      <p class="sub">BMverse frames a traits-driven, on-chain economy. The <em>secret of mutation</em> is combining elements using principles of physics to achieve sustainability  the reason for existence and the vision.</p>
+      <div class="grid cols-3">
+        <div class="card"><strong>Purpose</strong><br/>Unify identity, skill and value via traits.</div>
+        <div class="card"><strong>Utility</strong><br/>Governance, liquidity, NFTs, reputation.</div>
+        <div class="card"><strong>Scope</strong><br/>BSC & Solana first; bridges to more chains.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELEMENTS -->
+  <section id="elements" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">12 Elements of Nature</h2>
+        </div>
+      </div>
+      <p class="sub">The elements simplify complex reality and sustain life.</p>
+      <div class="grid cols-3">
+        <div class="card"> Earth  soil & rock we live on</div>
+        <div class="card"> Water  seas, lakes, all waters</div>
+        <div class="card"> Wind  air we breathe & sky</div>
+        <div class="card"> Fire  heat & flame</div>
+        <div class="card"> Thunder  electricity</div>
+        <div class="card"> Ice  snow & cold</div>
+        <div class="card"> Force  combat & spirit</div>
+        <div class="card"> Time  past, present, future</div>
+        <div class="card"> Flower  plants & growth</div>
+        <div class="card"> Shadow  darkness & negativity</div>
+        <div class="card"> Light  divinity & purity</div>
+        <div class="card"> Moon  space & the paranormal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAGIC -->
+  <section id="magic" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">8 Elements of Magic</h2>
+        </div>
+      </div>
+      <p class="sub">Each stands for specific attributes and its own philosophy.</p>
+      <div class="grid cols-2">
+        <div class="card">Air  breath, motion, clarity</div>
+        <div class="card">Fire  heat, energy, will</div>
+        <div class="card">Water  flow, memory, adaptation</div>
+        <div class="card">Earth  stability, growth, form</div>
+        <div class="card">Darkness  hidden, entropy</div>
+        <div class="card">Light  revelation, guidance</div>
+        <div class="card">Metal  structure & craft</div>
+        <div class="card">Nature  life & harmony</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAITS -->
+  <section id="traits" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">Traits Engine</h2>
+        </div>
+      </div>
+      <p class="sub">Each user can create <strong>three traits</strong> using mutation attributes. Fixed traits and combinations unlock collectibles and utility across BMverse.</p>
+      <div class="grid cols-3">
+        <div class="card"> Mintable & evolvable traits (fixed + mutable)</div>
+        <div class="card"> Mutation engine  combine elements to evolve</div>
+        <div class="card"> Cross-chain presence (BSC & Solana) + governance</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">Team</h2>
+        </div>
+      </div>
+      <p class="sub">The minds behind ANTVERSE and BMverse.</p>
+      <div class="grid cols-3">
+        <div class="card"><strong>Hesam Khalaj</strong><br/>Founder & CEO  vision, product, ecosystem.</div>
+        <div class="card"><strong>Sefa</strong><br/>Former COO  advisory on ops & growth.</div>
+        <div class="card"><strong>Core Devs</strong><br/>Tokenomics, smart contracts, DeFi & NFTs.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">Roadmap</h2>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card"><strong>Q1 2025  Launch Core</strong><br/>Token (BEP20/SOL), Traits Engine, landing site.</div>
+        <div class="card"><strong>Q2 2025  Expansion</strong><br/>DEX integrations, NFT Trait Collection, governance beta.</div>
+        <div class="card"><strong>Q3 2025  DeFi & Partners</strong><br/>Liquidity programs, strategic partners, external integrations.</div>
+        <div class="card"><strong>Q4 2025  Global</strong><br/>Cross-chain bridge, mobile app, BMverse alignment.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKETS / CTA -->
+  <section id="markets" class="sec">
+    <div class="container">
+      <div class="head">
+        <div>
+          <div class="kicker">Section</div>
+          <h2 class="title">Markets</h2>
+        </div>
+      </div>
+      <p class="sub">Trade ANTVERSE liquidity on supported chains.</p>
+      <div class="grid cols-2">
+        <a class="card" href="https://www.geckoterminal.com/bsc/pools/0x747b21a218382eae91d7479e51093a5a49ccc3dd" target="_blank" rel="noopener"> BSC Pool (GeckoTerminal)</a>
+        <a class="card" href="https://www.geckoterminal.com/solana/pools/4HpWcnTQZo3F4FZSeAEiDE9KtivoJjmKwxJGuWFzruzy" target="_blank" rel="noopener"> Solana Pool (GeckoTerminal)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+       ANTVERSE  Part of BMverse  All rights reserved
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/bmverse" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 11.28h-3v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.7h-3v-10h2.88v1.37h.04c.4-.75 1.38-1.54 2.85-1.54 3.05 0 3.62 2.01 3.62 4.62v5.55z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://twitter.com/bmverse" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.38 4.482c-4.084-.205-7.702-2.16-10.126-5.134a4.822 4.822 0 00-.664 2.475c0 1.708.87 3.215 2.188 4.099a4.904 4.904 0 01-2.228-.616c-.054 2.385 1.671 4.623 4.152 5.118a4.936 4.936 0 01-2.224.084c.626 1.956 2.444 3.377 4.6 3.419a9.867 9.867 0 01-6.102 2.105c-.397 0-.788-.023-1.175-.069a13.945 13.945 0 007.548 2.213c9.056 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636a10.012 10.012 0 002.459-2.548z"/></svg>
+          Twitter
+        </a>
+        <a href="https://www.crunchbase.com/organization/bmverse" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v18h20v-18h-20zm11 14h-6v-10h6v2h-4v6h4v2zm7-4h-5v-2h5v2z"/></svg>
+          Crunchbase
+        </a>
+        <a href="https://github.com/beautifullminds/ANTverse" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .5a12 12 0 00-3.793 23.405c.6.111.793-.261.793-.579v-2.256c-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.73.082-.73 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.774.418-1.304.762-1.604-2.665-.304-5.466-1.334-5.466-5.931 0-1.311.469-2.382 1.236-3.222-.124-.304-.536-1.527.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 016.003 0c2.291-1.552 3.297-1.23 3.297-1.23.655 1.649.243 2.872.119 3.176.77.84 1.236 1.911 1.236 3.222 0 4.609-2.804 5.625-5.475 5.922.43.372.823 1.103.823 2.222v3.293c0 .32.191.694.801.576a12 12 0 00-3.799-23.404z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Tiny parallax
+  const layers = document.querySelectorAll('[data-speed]');
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    layers.forEach(el => {
+      const sp = parseFloat(el.dataset.speed||0);
+      el.style.transform = `translate3d(0,${y*sp*-0.25}px,0)`;
+    });
+  }, {passive:true});
+</script>
+</body>
+</html>
