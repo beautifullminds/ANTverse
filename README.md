@@ -8,6 +8,9 @@ ANTVERSE/
   contracts/          - smart contracts
   frontend/           - landing page / dapp
   docs/               - whitepaper, roadmap, team
+
+https://www.geckoterminal.com/bsc/pools/0x747b21a218382eae91d7479e51093a5a49ccc3dd
+
   scripts/            - deploy and ops
   .github/workflows/  - CI
   LICENSE
