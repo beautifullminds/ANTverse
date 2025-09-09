@@ -1,6 +1,7 @@
 ﻿# ANTVERSE
 
 ANTVERSE: BMverse metaverse ecosystem - NFTs, DeFi, gaming, community.
+https://bscscan.com/token/0xf9fa938a18d73246298ef99c7d6d75dca7eb2a48
 
 ## Structure
 ANTVERSE/
