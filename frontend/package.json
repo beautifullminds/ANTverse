@@ -1,0 +1,10 @@
+{
+  "name": "antverse-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static frontend for BMverse ANTVERSE and ETHEREUM-X landing pages",
+  "scripts": {
+    "build": "echo 'Static site - nothing to build' && mkdir -p dist && cp -r ../docs/* dist/"
+  },
+  "license": "MIT"
+}
