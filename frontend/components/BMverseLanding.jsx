@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide = false }) {
   const slides = [
+    // --- ETHEREUM-X ---
     {
       id: "ethereumx",
       brand: "BMverse",
@@ -13,11 +14,11 @@ export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide
       badges: ["Finality +30%", "3,000+ TPS", "Gas −90%", "Dual-Yield", "SCC", "99.9% Green"],
       features: [
         { title: "AI-Enhanced PoP (AIPoP)", body: "Adaptive consensus that rewards real performance, eliminates high entry barriers, and improves finality." },
-        { title: "3,000+ TPS & Low Fees", body: "Native L2 acceleration and parallel validation to unlock high throughput at lower cost." },
+        { title: "3,000+ TPS & Low Fees", body: "Native L2 acceleration and parallel validation unlock high throughput at lower cost." },
         { title: "Smart Context Contracts (SCC)", body: "AI-optimized contracts auto-tune gas, route to lowest-cost paths, and support multi-chain execution." },
         { title: "Dual-Yield Staking", body: "Predictable rewards designed for ETH + BMUSD without slashing risk." },
         { title: "Sustainability First", body: "Adaptive node sleeping and AI power scheduling target ~99.9% less energy per tx." },
-        { title: "Bridge-less Interop", body: "Unified multi-chain wallet to move assets cross-network without legacy bridges." },
+        { title: "Bridge-less Interop", body: "Unified multi-chain wallet to move assets cross-network without legacy bridges." }
       ],
       comparison: {
         headA: "Ethereum 2.0",
@@ -31,19 +32,21 @@ export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide
           ["Development", "Fragmented", "Unified SDK + AI audit"],
           ["Governance", "Often off-chain", "On-chain quadratic voting"],
           ["Sustainability", "~99% over PoW", "~99.9% + AI scheduling"],
-          ["Interoperability", "Bridges required", "Built-in multi-chain wallet"],
-        ],
+          ["Interoperability", "Bridges required", "Built-in multi-chain wallet"]
+        ]
       },
       builders: [
         "Unified SDK for all networks",
         "AI-assisted audits & auto-debug",
         "Smart Context Contracts templates",
-        "Grants & ecosystem bounties",
+        "Grants & ecosystem bounties"
       ],
       theme: { from: "from-emerald-300", to: "to-fuchsia-400", accent: "bg-emerald-400" },
       primaryCta: "Get Early Access",
-      secondaryCta: "See the comparison",
+      secondaryCta: "See the comparison"
     },
+
+    // --- ANTVERSE ---
     {
       id: "antverse",
       brand: "BMverse",
@@ -58,7 +61,7 @@ export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide
         { title: "DeFi Liquidity Mirroring", body: "Mirror LP positions across chains and DEXes to stabilize game economies." },
         { title: "Cross-Chain Social Tokens", body: "Creator & guild tokens portable across EVM + L2s with unified identity." },
         { title: "BMUSD Integration", body: "Stable value for marketplaces, rentals, prizes, and subscriptions." },
-        { title: "Builder APIs", body: "SDKs for quests, drops, marketplace rules, and anti-bot fairness." },
+        { title: "Builder APIs", body: "SDKs for quests, drops, marketplace rules, and anti-bot fairness." }
       ],
       comparison: {
         headA: "Traditional Game Platforms",
@@ -66,22 +69,22 @@ export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide
         rows: [
           ["Ownership", "Custodial, siloed", "On-chain, user-owned"],
           ["Economy", "Closed, inflation-prone", "Mirror liquidity + BMUSD"],
-          ["Interoperability", "Single-world items", "Cross-world/cross-chain"],
+          ["Interoperability", "Single-world items", "Cross-world / cross-chain"],
           ["Earnings", "Off-platform only", "Playable NFTs with real yield"],
           ["Governance", "Studio-controlled", "Player & creator DAOs"],
-          ["Fraud/Bots", "Reactive bans", "AI anti-bot + proofs"],
-        ],
-      ],
+          ["Fraud/Bots", "Reactive bans", "AI anti-bot + proofs"]
+        ]
+      },
       builders: [
         "Unity/Unreal kits + REST/JS SDK",
         "Quest & reward graph templates",
         "Marketplace + rental primitives",
-        "Analytics + anti-bot modules",
+        "Analytics + anti-bot modules"
       ],
       theme: { from: "from-amber-300", to: "to-pink-500", accent: "bg-amber-400" },
       primaryCta: "Launch Your World",
-      secondaryCta: "See the advantages",
-    },
+      secondaryCta: "See the advantages"
+    }
   ];
 
   const defaultIndex = Math.max(0, slides.findIndex(s => s.id === defaultSlide));
@@ -276,12 +279,19 @@ export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide
             </p>
             <ul className="mt-6 space-y-3 text-white/80">
               {current.builders.map((b, i) => (
-                <li key={i} className="flex items-start gap-3"><span className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${current.id === "ethereumx" ? "bg-emerald-400" : "bg-amber-400"}`} /> {b}</li>
+                <li key={i} className="flex items-start gap-3">
+                  <span className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${current.id === "ethereumx" ? "bg-emerald-400" : "bg-amber-400"}`} />
+                  {b}
+                </li>
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#cta" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">{current.id === "ethereumx" ? "Apply for Grants" : "Get Builder Kit"}</a>
-              <a href="https://github.com/beautifullminds" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">Explore Repos</a>
+              <a href="#cta" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
+                {current.id === "ethereumx" ? "Apply for Grants" : "Get Builder Kit"}
+              </a>
+              <a href="https://github.com/beautifullminds" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">
+                Explore Repos
+              </a>
             </div>
           </div>
           <div className="relative rounded-3xl border border-white/10 bg-white/5 p-6">
@@ -321,7 +331,9 @@ export default function BMverseLanding({ defaultSlide = "ethereumx", lockToSlide
             </div>
             <div className="relative">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80">
-                <p className={`${current.id === "ethereumx" ? "text-emerald-300" : "text-amber-300"} font-semibold`}>{current.id === "ethereumx" ? "Join the Ethereum-X community" : "Join the ANTVERSE community"}</p>
+                <p className={`${current.id === "ethereumx" ? "text-emerald-300" : "text-amber-300"} font-semibold`}>
+                  {current.id === "ethereumx" ? "Join the Ethereum-X community" : "Join the ANTVERSE community"}
+                </p>
                 <p className="mt-2">Be first to test the unified wallet, templates, and grants/builder kits.</p>
                 <NewsletterForm />
               </div>
