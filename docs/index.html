@@ -1,271 +1,392 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ANTVERSE  BMverse</title>
-<meta name="description" content="ANTVERSE  Parallax landing built from BMverse whitepaper: 12 Elements, 8 Magic, Traits Engine, roadmap, markets." />
-<link rel="icon" href="data:," />
-<meta property="og:title" content="ANTVERSE  BMverse" />
-<meta property="og:description" content="The first super dApps in the world  traits-driven Web3 ecosystem." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://bmverse.io/" />
-<meta name="theme-color" content="#0e1018" />
-<style>
-  :root{
-    --bg:#0e1018; /* graphite background from logo */
-    --fg:#e8ecf1; --fg-dim:#a9b0be;
-    --green:#68c23a; /* ANTVERSE green */
-    --mag:#ff21a6;   /* magenta star */
-    --card:rgba(255,255,255,.06); --card-brd:rgba(255,255,255,.10);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial}
-  a{color:var(--green);text-decoration:none}
-  a:hover{text-decoration:underline}
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-  header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
-  .nav{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px}
-  .grow{flex:1}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
-  .badge{width:10px;height:10px;border-radius:50%;background:var(--mag);box-shadow:0 0 12px var(--mag)}
-  .nav a{color:#dbe1ea;margin-left:18px}
-  .btn{background:var(--green);color:#0b0d12;border:none;border-radius:999px;padding:10px 16px;font-weight:700}
+// One-file React + Tailwind landing integrating the original page structure
+// with a two-slide experience: ANTVERSE and ETHEREUM‑X. Sections below the hero
+// swap their content based on the active slide.
+export default function BMverseLanding() {
+  type Slide = {
+    id: "antverse" | "ethereumx";
+    brand: string;
+    title: string;
+    tagline: string;
+    description: string;
+    badges: string[];
+    features: { title: string; body: string }[];
+    comparison: { headA: string; headB: string; rows: [string, string, string][] };
+    builders: string[];
+    theme: { from: string; to: string; accent: string };
+    primaryCta: string;
+    secondaryCta: string;
+  };
 
-  .hero{position:relative;min-height:78vh;display:grid;place-items:center;text-align:center;overflow:hidden}
-  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.04;margin:0 0 10px}
-  .hero p{color:var(--fg-dim);max-width:760px;margin:0 auto 22px}
-  .container{max-width:1200px;margin:0 auto;padding:0 20px}
-  .layer{position:absolute;inset:-10%;background:radial-gradient(1200px 500px at 50% -10%, rgba(104,194,58,.20), transparent 60%);}
-  .layer2{position:absolute;inset:-10%;background:radial-gradient(900px 380px at 70% 120%, rgba(255,33,166,.17), transparent 65%);}
-  .stars{position:absolute;inset:0;background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 0 1px, transparent 1px) 0 0/120px 120px,
-    radial-gradient(circle at 70% 60%, rgba(255,255,255,.25) 0 1px, transparent 1px) 0 0/160px 160px;}
-  .kickers{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-  .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+  const slides: Slide[] = [
+    {
+      id: "ethereumx",
+      brand: "BMverse",
+      title: "Ethereum‑X",
+      tagline: "Where Ethereum Evolves Beyond Limits",
+      description:
+        "A next‑gen evolution layer designed for real‑time scalability, AI‑driven optimization, and a radically better developer & user experience — all powered by the BMverse ecosystem.",
+      badges: ["Finality +30%", "3,000+ TPS", "Gas −90%", "Dual‑Yield", "SCC", "99.9% Green"],
+      features: [
+        { title: "AI‑Enhanced PoP (AIPoP)", body: "Adaptive consensus that rewards real performance, eliminates high entry barriers, and improves finality." },
+        { title: "3,000+ TPS & Low Fees", body: "Native L2 acceleration and parallel validation to unlock high throughput at lower cost." },
+        { title: "Smart Context Contracts (SCC)", body: "AI‑optimized contracts auto‑tune gas, route to lowest‑cost paths, and support multi‑chain execution." },
+        { title: "Dual‑Yield Staking", body: "Predictable rewards designed for ETH + BMUSD without slashing risk." },
+        { title: "Sustainability First", body: "Adaptive node sleeping and AI power scheduling target ~99.9% less energy per tx." },
+        { title: "Bridge‑less Interop", body: "Unified multi‑chain wallet to move assets cross‑network without legacy bridges." },
+      ],
+      comparison: {
+        headA: "Ethereum 2.0",
+        headB: "Ethereum‑X",
+        rows: [
+          ["Consensus", "Proof‑of‑Stake", "AI‑Enhanced Proof‑of‑Participation"],
+          ["Speed", "15–30 TPS", "3,000+ TPS (native scaling)"],
+          ["Gas Cost", "Moderate", "Up to 90% cheaper"],
+          ["Smart Contracts", "EVM", "Smart Context Contracts (AI‑optimized)"],
+          ["Staking", "ETH only", "Dual Yield: ETH + BMUSD"],
+          ["Development", "Fragmented", "Unified SDK + AI audit"],
+          ["Governance", "Often off‑chain", "On‑chain quadratic voting"],
+          ["Sustainability", "~99% over PoW", "~99.9% + AI scheduling"],
+          ["Interoperability", "Bridges required", "Built‑in multi‑chain wallet"],
+        ],
+      },
+      builders: [
+        "Unified SDK for all networks",
+        "AI‑assisted audits & auto‑debug",
+        "Smart Context Contracts templates",
+        "Grants & ecosystem bounties",
+      ],
+      theme: { from: "from-emerald-300", to: "to-fuchsia-400", accent: "bg-emerald-400" },
+      primaryCta: "Get Early Access",
+      secondaryCta: "See the comparison",
+    },
+    {
+      id: "antverse",
+      brand: "BMverse",
+      title: "ANTVERSE",
+      tagline: "AI‑Driven Metaverse Economy",
+      description:
+        "ANTVERSE connects gaming, DeFi, and AI economies through decentralized identity and mirror liquidity. It powers smart worlds where every digital action creates real‑world value.",
+      badges: ["AI‑Worlds", "Playable NFTs", "Mirror Liquidity", "Cross‑Chain Social"],
+      features: [
+        { title: "AI‑Adaptive Worlds", body: "Dynamically tuning difficulty, rewards, and world logic from real‑time signals." },
+        { title: "Playable NFTs with Yield", body: "NFT avatars and items accrue in‑world + DeFi rewards with transparent on‑chain logic." },
+        { title: "DeFi Liquidity Mirroring", body: "Mirror LP positions across chains and DEXes to stabilize game economies." },
+        { title: "Cross‑Chain Social Tokens", body: "Creator & guild tokens portable across EVM + L2s with unified identity." },
+        { title: "BMUSD Integration", body: "Stable value for marketplaces, rentals, prizes, and subscriptions." },
+        { title: "Builder APIs", body: "SDKs for quests, drops, marketplace rules, and anti‑bot fairness." },
+      ],
+      comparison: {
+        headA: "Traditional Game Platforms",
+        headB: "ANTVERSE",
+        rows: [
+          ["Ownership", "Custodial, siloed", "On‑chain, user‑owned"],
+          ["Economy", "Closed, inflation‑prone", "Mirror liquidity + BMUSD"],
+          ["Interoperability", "Single‑world items", "Cross‑world/cross‑chain"],
+          ["Earnings", "Off‑platform only", "Playable NFTs with real yield"],
+          ["Governance", "Studio‑controlled", "Player & creator DAOs"],
+          ["Fraud/Bots", "Reactive bans", "AI anti‑bot + proofs"],
+        ],
+      },
+      builders: [
+        "Unity/Unreal kits + REST/JS SDK",
+        "Quest & reward graph templates",
+        "Marketplace + rental primitives",
+        "Analytics + anti‑bot modules",
+      ],
+      theme: { from: "from-amber-300", to: "to-pink-500", accent: "bg-amber-400" },
+      primaryCta: "Launch Your World",
+      secondaryCta: "See the advantages",
+    },
+  ];
 
-  section.sec{padding:72px 0;border-top:1px solid rgba(255,255,255,.06);position:relative}
-  .sec .head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
-  .sec .title{font-size:clamp(26px,3.6vw,38px);margin:0}
-  .sec .kicker{letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);font-size:12px}
-  .sec .sub{color:var(--fg-dim);margin:0 0 26px}
-  .grid{display:grid;gap:18px}
-  @media(min-width:820px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
-  .card{background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:18px}
+  const [index, setIndex] = useState(0);
+  const current = slides[index];
 
-  footer{padding:42px 0;color:var(--fg-dim);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
-  .socials{margin-top:14px;display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
-  .socials a{color:var(--fg);font-weight:500;display:flex;align-items:center;gap:6px}
-  .socials a:hover{color:var(--green)}
-  .socials svg{width:18px;height:18px;fill:currentColor}
-</style>
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <div class="brand"><span class="badge"></span>ANTVERSE</div>
-      <div class="grow"></div>
-      <nav>
-        <a href="#vision">Vision</a>
-        <a href="#elements">Elements</a>
-        <a href="#magic">Magic</a>
-        <a href="#traits">Traits</a>
-        <a href="#team">Team</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#markets">Markets</a>
-      </nav>
-      <a class="btn" href="#markets">Launch</a>
-    </div>
-  </header>
+  const next = () => setIndex((i) => (i + 1) % slides.length);
+  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  const setById = (id: Slide["id"]) => setIndex(slides.findIndex((s) => s.id === id));
 
-  <section class="hero">
-    <div class="layer" data-speed="0.2"></div>
-    <div class="layer2" data-speed="0.35"></div>
-    <div class="stars" data-speed="0.05"></div>
-    <div class="container">
-      <h1>ANTVERSE</h1>
-      <p>The first super dApps in the world. A decentralized platform provider of Web3 prerequisites for the next generation  part of BMverse. Parallax one-pager with uniform sections, drawn from the BMverse whitepaper.</p>
-      <div class="kickers">
-        <span class="tag">12 Elements</span>
-        <span class="tag">8 Magic</span>
-        <span class="tag">Traits Engine</span>
+  return (
+    <div className="min-h-screen w-full bg-[#0b0f14] text-white selection:bg-emerald-300/20 selection:text-emerald-100 relative overflow-hidden">
+      {/* Ambient glows */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className={`absolute -top-24 -left-24 h-96 w-96 rounded-full blur-3xl opacity-40 ${current.theme.accent}`} />
+        <div className={`absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-30 ${current.theme.accent}`} />
       </div>
-    </div>
-  </section>
 
-  <!-- VISION -->
-  <section id="vision" class="sec">
-    <div class="container">
-      <div class="head">
-        <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">Vision</h2>
+      {/* Nav */}
+      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+        <div className="flex items-center gap-3">
+          <div className={`h-9 w-9 rounded-full ${current.theme.accent} ring-2 ring-white/10`} />
+          <span className="text-lg font-semibold tracking-wide">BMverse</span>
         </div>
-      </div>
-      <p class="sub">BMverse frames a traits-driven, on-chain economy. The <em>secret of mutation</em> is combining elements using principles of physics to achieve sustainability  the reason for existence and the vision.</p>
-      <div class="grid cols-3">
-        <div class="card"><strong>Purpose</strong><br/>Unify identity, skill and value via traits.</div>
-        <div class="card"><strong>Utility</strong><br/>Governance, liquidity, NFTs, reputation.</div>
-        <div class="card"><strong>Scope</strong><br/>BSC & Solana first; bridges to more chains.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ELEMENTS -->
-  <section id="elements" class="sec">
-    <div class="container">
-      <div class="head">
-        <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">12 Elements of Nature</h2>
+        <nav className="hidden items-center gap-8 md:flex text-sm">
+          <button onClick={() => setById("antverse")} className={`hover:text-emerald-300 ${current.id === "antverse" ? "text-emerald-300" : "text-white/80"}`}>ANTVERSE</button>
+          <button onClick={() => setById("ethereumx")} className={`hover:text-emerald-300 ${current.id === "ethereumx" ? "text-emerald-300" : "text-white/80"}`}>ETHEREUM‑X</button>
+          <a href="#features" className="hover:text-emerald-300">Features</a>
+          <a href="#compare" className="hover:text-emerald-300">Comparison</a>
+          <a href="#builders" className="hover:text-emerald-300">For Builders</a>
+          <a href="#community" className="hover:text-emerald-300">Community</a>
+        </nav>
+        <div className="flex items-center gap-3">
+          <a
+            href="https://github.com/beautifullminds"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-xl border border-white/10 px-4 py-2 text-sm hover:border-emerald-400/40 hover:text-emerald-300"
+          >
+            GitHub
+          </a>
+          <a
+            href="#cta"
+            className="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400"
+          >
+            {current.primaryCta}
+          </a>
         </div>
-      </div>
-      <p class="sub">The elements simplify complex reality and sustain life.</p>
-      <div class="grid cols-3">
-        <div class="card"> Earth  soil & rock we live on</div>
-        <div class="card"> Water  seas, lakes, all waters</div>
-        <div class="card"> Wind  air we breathe & sky</div>
-        <div class="card"> Fire  heat & flame</div>
-        <div class="card"> Thunder  electricity</div>
-        <div class="card"> Ice  snow & cold</div>
-        <div class="card"> Force  combat & spirit</div>
-        <div class="card"> Time  past, present, future</div>
-        <div class="card"> Flower  plants & growth</div>
-        <div class="card"> Shadow  darkness & negativity</div>
-        <div class="card"> Light  divinity & purity</div>
-        <div class="card"> Moon  space & the paranormal</div>
-      </div>
-    </div>
-  </section>
+      </header>
 
-  <!-- MAGIC -->
-  <section id="magic" class="sec">
-    <div class="container">
-      <div class="head">
+      {/* HERO Slider */}
+      <section className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
         <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">8 Elements of Magic</h2>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
+            <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+            {current.id === "ethereumx" ? "Live R&D • Ethereum‑X by BMverse" : "Live • ANTVERSE by BMverse"}
+          </div>
+          <h1 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
+            {current.title}
+            <span className={`block bg-gradient-to-r ${current.theme.from} ${current.theme.to} bg-clip-text text-transparent`}>
+              {current.tagline}
+            </span>
+          </h1>
+          <p className="mt-5 max-w-xl text-base text-white/80 md:text-lg">{current.description}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#cta" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
+              {current.primaryCta}
+            </a>
+            <a href="#compare" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">
+              {current.secondaryCta}
+            </a>
+          </div>
+          <div className="mt-6 flex items-center gap-6 text-sm text-white/60">
+            {current.id === "ethereumx" ? (
+              <>
+                <span>BMUSD integrated</span><span>•</span><span>AI‑audited SDK</span><span>•</span><span>Bridge‑less interop</span>
+              </>
+            ) : (
+              <>
+                <span>Playable NFTs</span><span>•</span><span>Mirror Liquidity</span><span>•</span><span>Creator Tokens</span>
+              </>
+            )}
+          </div>
         </div>
-      </div>
-      <p class="sub">Each stands for specific attributes and its own philosophy.</p>
-      <div class="grid cols-2">
-        <div class="card">Air  breath, motion, clarity</div>
-        <div class="card">Fire  heat, energy, will</div>
-        <div class="card">Water  flow, memory, adaptation</div>
-        <div class="card">Earth  stability, growth, form</div>
-        <div class="card">Darkness  hidden, entropy</div>
-        <div class="card">Light  revelation, guidance</div>
-        <div class="card">Metal  structure & craft</div>
-        <div class="card">Nature  life & harmony</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- TRAITS -->
-  <section id="traits" class="sec">
-    <div class="container">
-      <div class="head">
-        <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">Traits Engine</h2>
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-6 shadow-2xl ring-1 ring-white/5"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {current.badges.map((k, i) => (
+                  <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center text-sm">
+                    {k}
+                  </div>
+                ))}
+              </div>
+              <div className={`mt-6 rounded-2xl border ${current.id === "ethereumx" ? "border-emerald-400/30 bg-emerald-500/10 text-emerald-200" : "border-amber-400/30 bg-amber-500/10 text-amber-100"} p-4`}>
+                <p className="text-sm">
+                  {current.id === "ethereumx"
+                    ? "Smart Context Contracts continuously self‑optimize with real‑time network signals."
+                    : "Mirror liquidity keeps game markets stable while staying fully on‑chain."}
+                </p>
+              </div>
+              <div className="mt-6 flex justify-between">
+                <button onClick={prev} className="rounded-full border border-white/20 px-4 py-2 text-sm hover:border-emerald-300/40">← Prev</button>
+                <button onClick={next} className="rounded-full border border-white/20 px-4 py-2 text-sm hover:border-emerald-300/40">Next →</button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          <div className={`absolute -bottom-6 -right-6 h-28 w-28 animate-pulse rounded-full ${current.theme.accent} blur-2xl`} />
         </div>
-      </div>
-      <p class="sub">Each user can create <strong>three traits</strong> using mutation attributes. Fixed traits and combinations unlock collectibles and utility across BMverse.</p>
-      <div class="grid cols-3">
-        <div class="card"> Mintable & evolvable traits (fixed + mutable)</div>
-        <div class="card"> Mutation engine  combine elements to evolve</div>
-        <div class="card"> Cross-chain presence (BSC & Solana) + governance</div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- TEAM -->
-  <section id="team" class="sec">
-    <div class="container">
-      <div class="head">
-        <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">Team</h2>
+      {/* Features */}
+      <section id="features" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <h2 className="text-2xl font-semibold md:text-3xl">Key Features</h2>
+        <p className="mt-4 max-w-3xl text-white/80">
+          {current.id === "ethereumx"
+            ? "Ethereum‑X advances performance, cost, and user experience through AI‑guided networking and SCC."
+            : "ANTVERSE fuses gaming, DeFi, and AI — giving players, creators, and studios programmable economies."}
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {current.features.map((f, idx) => (
+            <div key={idx} className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+              <h3 className={`text-lg font-semibold ${current.id === "ethereumx" ? "text-emerald-300" : "text-amber-300"}`}>{f.title}</h3>
+              <p className="mt-3 text-sm text-white/80">{f.body}</p>
+            </div>
+          ))}
         </div>
-      </div>
-      <p class="sub">The minds behind ANTVERSE and BMverse.</p>
-      <div class="grid cols-3">
-        <div class="card"><strong>Hesam Khalaj</strong><br/>Founder & CEO  vision, product, ecosystem.</div>
-        <div class="card"><strong>Ehsan Larani</strong><br/>Former CFO  advisory on ops & growth.</div>
-        <div class="card"><strong>Core Devs</strong><br/>Tokenomics, smart contracts, DeFi & NFTs.</div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ROADMAP -->
-  <section id="roadmap" class="sec">
-    <div class="container">
-      <div class="head">
-        <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">Roadmap</h2>
+      {/* Comparison */}
+      <section id="compare" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">Comparison</h2>
+            <p className="mt-3 max-w-2xl text-white/80">
+              {current.id === "ethereumx"
+                ? "A quick snapshot of how Ethereum‑X advances core dimensions of performance, cost, and UX."
+                : "How ANTVERSE differs from traditional game platforms in ownership, economics, and interoperability."}
+            </p>
+          </div>
+          <a href="#cta" className="hidden rounded-xl border border-white/15 px-4 py-2 text-sm hover:border-emerald-300/40 hover:text-emerald-200 md:inline-block">{current.primaryCta}</a>
         </div>
-      </div>
-      <div class="grid cols-2">
-        <div class="card"><strong>Q1 2025  Launch Core</strong><br/>Token (BEP20/SOL), Traits Engine, landing site.</div>
-        <div class="card"><strong>Q2 2025  Expansion</strong><br/>DEX integrations, NFT Trait Collection, governance beta.</div>
-        <div class="card"><strong>Q3 2025  DeFi & Partners</strong><br/>Liquidity programs, strategic partners, external integrations.</div>
-        <div class="card"><strong>Q4 2025  Global</strong><br/>Cross-chain bridge, mobile app, BMverse alignment.</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- MARKETS / CTA -->
-  <section id="markets" class="sec">
-    <div class="container">
-      <div class="head">
-        <div>
-          <div class="kicker">Section</div>
-          <h2 class="title">Markets</h2>
+        <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+          <table className="w-full min-w-[720px] border-collapse bg-white/5 text-sm">
+            <thead>
+              <tr className="bg-white/10 text-left text-white">
+                <th className="p-4">Feature</th>
+                <th className="p-4">{current.comparison.headA}</th>
+                <th className="p-4">{current.comparison.headB}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {current.comparison.rows.map((row, i) => (
+                <tr key={i} className="odd:bg-white/0 even:bg-white/5">
+                  <td className="p-4 font-medium text-white/90">{row[0]}</td>
+                  <td className="p-4 text-white/75">{row[1]}</td>
+                  <td className={`p-4 ${current.id === "ethereumx" ? "text-emerald-200" : "text-amber-100"}`}>{row[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
-      <p class="sub">Trade ANTVERSE liquidity on supported chains.</p>
-      <div class="grid cols-2">
-        <a class="card" href="https://www.geckoterminal.com/bsc/pools/0x747b21a218382eae91d7479e51093a5a49ccc3dd" target="_blank" rel="noopener"> BSC Pool (GeckoTerminal)</a>
-        <a class="card" href="https://www.geckoterminal.com/solana/pools/4HpWcnTQZo3F4FZSeAEiDE9KtivoJjmKwxJGuWFzruzy" target="_blank" rel="noopener"> Solana Pool (GeckoTerminal)</a>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <footer>
-    <div class="container">
-       ANTVERSE  Part of BMverse  All rights reserved
-      <div class="socials">
-        <a href="https://www.linkedin.com/company/bmverse" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 11.28h-3v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.7h-3v-10h2.88v1.37h.04c.4-.75 1.38-1.54 2.85-1.54 3.05 0 3.62 2.01 3.62 4.62v5.55z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://twitter.com/bmverse" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.38 4.482c-4.084-.205-7.702-2.16-10.126-5.134a4.822 4.822 0 00-.664 2.475c0 1.708.87 3.215 2.188 4.099a4.904 4.904 0 01-2.228-.616c-.054 2.385 1.671 4.623 4.152 5.118a4.936 4.936 0 01-2.224.084c.626 1.956 2.444 3.377 4.6 3.419a9.867 9.867 0 01-6.102 2.105c-.397 0-.788-.023-1.175-.069a13.945 13.945 0 007.548 2.213c9.056 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636a10.012 10.012 0 002.459-2.548z"/></svg>
-          Twitter
-        </a>
-        <a href="https://www.crunchbase.com/organization/bmverse" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3v18h20v-18h-20zm11 14h-6v-10h6v2h-4v6h4v2zm7-4h-5v-2h5v2z"/></svg>
-          Crunchbase
-        </a>
-        <a href="https://github.com/beautifullminds/ANTverse" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .5a12 12 0 00-3.793 23.405c.6.111.793-.261.793-.579v-2.256c-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.082-.73.082-.73 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.774.418-1.304.762-1.604-2.665-.304-5.466-1.334-5.466-5.931 0-1.311.469-2.382 1.236-3.222-.124-.304-.536-1.527.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 016.003 0c2.291-1.552 3.297-1.23 3.297-1.23.655 1.649.243 2.872.119 3.176.77.84 1.236 1.911 1.236 3.222 0 4.609-2.804 5.625-5.475 5.922.43.372.823 1.103.823 2.222v3.293c0 .32.191.694.801.576a12 12 0 00-3.799-23.404z"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
-  </footer>
+      {/* Builders */}
+      <section id="builders" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="grid items-start gap-10 md:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">Built for Builders</h2>
+            <p className="mt-4 max-w-xl text-white/80">
+              {current.id === "ethereumx"
+                ? "Ship faster with a unified, AI‑audited SDK, one‑click deploys, and SCC templates."
+                : "Drop‑in kits for games & worlds — quests, drops, economies, rentals, and anti‑bot fairness."}
+            </p>
+            <ul className="mt-6 space-y-3 text-white/80">
+              {current.builders.map((b, i) => (
+                <li key={i} className="flex items-start gap-3"><span className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${current.id === "ethereumx" ? "bg-emerald-400" : "bg-amber-400"}`} /> {b}</li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#cta" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">{current.id === "ethereumx" ? "Apply for Grants" : "Get Builder Kit"}</a>
+              <a href="https://github.com/beautifullminds" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">Explore Repos</a>
+            </div>
+          </div>
+          <div className="relative rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="grid grid-cols-2 gap-4">
+              {(current.id === "ethereumx"
+                ? ["One‑click deploy", "AI audit", "Auto‑debug", "SDK templates", "SCC kit", "Wallet API"]
+                : ["Unity/Unreal", "Reward graph", "Marketplace", "Rentals", "Analytics", "Anti‑bot"]
+              ).map((t, i) => (
+                <div key={i} className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/0 p-4 text-center">
+                  <span className="text-sm text-white/85">{t}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-white/70">
+              {current.id === "ethereumx"
+                ? "Start with SCC templates and ship features that self‑optimize gas, latency, and routing."
+                : "Instrument quests and markets with on‑chain rules and anti‑bot scoring."}
+            </p>
+          </div>
+        </div>
+      </section>
 
-<script>
-  // Tiny parallax
-  const layers = document.querySelectorAll('[data-speed]');
-  addEventListener('scroll', () => {
-    const y = scrollY;
-    layers.forEach(el => {
-      const sp = parseFloat(el.dataset.speed||0);
-      el.style.transform = `translate3d(0,${y*sp*-0.25}px,0)`;
-    });
-  }, {passive:true});
-</script>
-</body>
-</html>
+      {/* Community */}
+      <section id="community" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-8">
+          <div className="grid items-center gap-8 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-semibold md:text-3xl">Powering a Shared Economy</h2>
+              <p className="mt-4 max-w-xl text-white/80">
+                BMUSD brings stable value across dApps, games, and DeFi in the BMverse. With bridge‑less transfers and predictable staking rewards, builders get reliable economics from day one.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3 text-sm text-white/70">
+                <a href="https://x.com/bmverseio" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-4 py-2 hover:border-emerald-300/40 hover:text-emerald-200">X / Twitter</a>
+                <a href="https://t.me/xprv9s" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-4 py-2 hover:border-emerald-300/40 hover:text-emerald-200">Telegram</a>
+                <a href="https://bmverse.io" className="rounded-xl border border-white/15 px-4 py-2 hover:border-emerald-300/40 hover:text-emerald-200">Website</a>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80">
+                <p className={`${current.id === "ethereumx" ? "text-emerald-300" : "text-amber-300"} font-semibold`}>{current.id === "ethereumx" ? "Join the Ethereum‑X community" : "Join the ANTVERSE community"}</p>
+                <p className="mt-2">Be first to test the unified wallet, templates, and grants/builder kits.</p>
+                <NewsletterForm />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="cta" className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        <div className="rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/10 to-fuchsia-500/10 p-10 text-center">
+          <h3 className="text-2xl font-semibold md:text-3xl">Ready to build with BMverse?</h3>
+          <p className="mx-auto mt-3 max-w-2xl text-white/80">
+            {current.id === "ethereumx"
+              ? "Get the developer preview, experiment with Smart Context Contracts, and help shape AI‑optimized blockchains."
+              : "Launch your AI‑driven world with playable NFTs, mirror liquidity, and creator tokens."}
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <a href="https://github.com/beautifullminds" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">View on GitHub</a>
+            <a href="#community" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">Join Community</a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="relative z-10 mx-auto max-w-7xl px-6 pb-10">
+        <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 md:grid-cols-2">
+          <p className="text-sm text-white/60">© {new Date().getFullYear()} BMverse — ANTVERSE & ETHEREUM‑X</p>
+          <div className="text-sm text-white/60 md:text-right">
+            <a href="mailto:ceo@bmverse.io" className="hover:text-emerald-300">ceo@bmverse.io</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  return (
+    <form
+      className="mt-4 flex gap-3"
+      onSubmit={(e) => {
+        e.preventDefault();
+        alert(`Thanks! We'll notify ${email} when early access opens.`);
+      }}
+    >
+      <input
+        type="email"
+        required
+        placeholder="your@email.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+      />
+      <button className="rounded-xl bg-emerald-500 px-4 font-semibold text-[#0b0f14] hover:bg-emerald-400">
+        Notify me
+      </button>
+    </form>
+  );
+}
