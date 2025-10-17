@@ -1,13 +1,14 @@
 name: Deploy Pages (smart)
+
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
 permissions:
+  contents: read
   pages: write
   id-token: write
-  contents: read
 
 concurrency:
   group: "pages"
@@ -21,19 +22,23 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
+      # Decide whether to build from /frontend or deploy static /docs
       - name: Decide build path
         id: paths
+        shell: bash
         run: |
           if [ -f frontend/package.json ]; then
-            echo "do_build=true" >> $GITHUB_OUTPUT
-            echo "build_path=frontend/dist" >> $GITHUB_OUTPUT
+            echo "do_build=true" >> "$GITHUB_OUTPUT"
+            echo "build_path=frontend/dist" >> "$GITHUB_OUTPUT"
           else
-            echo "do_build=false" >> $GITHUB_OUTPUT
-            echo "build_path=docs" >> $GITHUB_OUTPUT
+            echo "do_build=false" >> "$GITHUB_OUTPUT"
+            echo "build_path=docs" >> "$GITHUB_OUTPUT"
           fi
 
+      # Only set up Node & build if /frontend/package.json exists
       - name: Setup Node
         if: steps.paths.outputs.do_build == 'true'
         uses: actions/setup-node@v4
@@ -42,16 +47,18 @@ jobs:
 
       - name: Build (frontend)
         if: steps.paths.outputs.do_build == 'true'
+        working-directory: frontend
         run: |
-          cd frontend
           npm ci || npm install
           npm run build
 
+      # Upload the site artifact (either docs/ or frontend/dist)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ steps.paths.outputs.build_path }}
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
