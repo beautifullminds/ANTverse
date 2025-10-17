@@ -24,7 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Decide whether to build from /frontend or deploy static /docs
       - name: Decide build path
         id: paths
         run: |
@@ -36,7 +35,6 @@ jobs:
             echo "build_path=docs" >> $GITHUB_OUTPUT
           fi
 
-      # Only run Node if /frontend/package.json exists
       - name: Setup Node
         if: steps.paths.outputs.do_build == 'true'
         uses: actions/setup-node@v4
@@ -47,7 +45,6 @@ jobs:
         if: steps.paths.outputs.do_build == 'true'
         run: |
           cd frontend
-          # If you just want to copy docs -> dist (stub build), package.json handles it
           npm ci || npm install
           npm run build
 
