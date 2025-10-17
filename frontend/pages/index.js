@@ -15,7 +15,7 @@ export default function Home() {
           BMverse — ANTVERSE & ETHEREUM-X
         </h1>
         <p style={{ opacity: 0.75 }}>
-          Next.js is configured successfully. Your GitHub Pages build will now pass.
+          Next.js is configured. Export will work now.
         </p>
       </div>
     </main>
