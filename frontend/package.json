@@ -5,7 +5,7 @@
   "description": "BMverse — Unified landing for ANTVERSE and ETHEREUM-X",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,5 +22,8 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17"
+  }
 }
