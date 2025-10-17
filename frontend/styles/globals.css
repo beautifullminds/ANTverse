@@ -1,2 +1,3 @@
+/* minimal global styles (safe for static export) */
 html, body { margin: 0; padding: 0; background: #0b0f14; color: white; }
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
