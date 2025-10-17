@@ -2,9 +2,25 @@
   "name": "antverse-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "Static frontend for BMverse ANTVERSE and ETHEREUM-X landing pages",
+  "description": "BMverse — Unified landing for ANTVERSE and ETHEREUM-X",
   "scripts": {
-    "build": "echo 'Static site - nothing to build' && mkdir -p dist && cp -r ../docs/* dist/"
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.18.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.0"
   },
   "license": "MIT"
 }
