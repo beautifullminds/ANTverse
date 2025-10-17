@@ -23,7 +23,5 @@
     "eslint-config-next": "^14.1.0"
   },
   "license": "MIT",
-  "engines": {
-    "node": ">=18.17"
-  }
+  "engines": { "node": ">=18.17" }
 }
