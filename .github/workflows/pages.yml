@@ -1,5 +1,4 @@
 name: Deploy Pages (smart)
-
 on:
   push:
     branches: [ main ]
