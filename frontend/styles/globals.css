@@ -1,3 +1,10 @@
-/* minimal global styles (safe for static export) */
-html, body { margin: 0; padding: 0; background: #0b0f14; color: white; }
-*, *::before, *::after { box-sizing: border-box; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: custom site styles */
+body {
+  background-color: #0b0f14;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
