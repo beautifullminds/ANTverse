@@ -1,4 +1,4 @@
-name: Deploy Pages (static /docs)
+name: Deploy Pages (smart)
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 permissions:
   pages: write
   id-token: write
+  contents: read
 
 concurrency:
   group: "pages"
@@ -15,16 +16,46 @@ concurrency:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      - name: Upload /docs artifact
+
+      # Decide whether to build from /frontend or deploy static /docs
+      - name: Decide build path
+        id: paths
+        run: |
+          if [ -f frontend/package.json ]; then
+            echo "do_build=true" >> $GITHUB_OUTPUT
+            echo "build_path=frontend/dist" >> $GITHUB_OUTPUT
+          else
+            echo "do_build=false" >> $GITHUB_OUTPUT
+            echo "build_path=docs" >> $GITHUB_OUTPUT
+          fi
+
+      # Only run Node if /frontend/package.json exists
+      - name: Setup Node
+        if: steps.paths.outputs.do_build == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build (frontend)
+        if: steps.paths.outputs.do_build == 'true'
+        run: |
+          cd frontend
+          # If you just want to copy docs -> dist (stub build), package.json handles it
+          npm ci || npm install
+          npm run build
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: ${{ steps.paths.outputs.build_path }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
