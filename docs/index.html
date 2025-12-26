@@ -3,195 +3,297 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMverse | Ethereum‑X + Antverse</title>
+    <title>BMverse – Ethereum‑X & ANTVERSE</title>
+
+    <!-- React + React DOM -->
     <script defer src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Framer Motion -->
     <script defer src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+
+    <!-- Tailwind (CDN) -->
     <script defer src="https://cdn.tailwindcss.com"></script>
+
     <style>
       body {
-        background-color: #0b0f14;
-        color: white;
+        background: #0b0f14;
+        color: #ffffff;
         font-family: system-ui, sans-serif;
-        margin: 0;
-        padding: 0;
       }
-      .token-section iframe {
+      iframe {
         width: 100%;
-        height: 320px;
-        border-radius: 1rem;
-        border: 1px solid #444;
+        height: 300px;
+        border: 1px solid #333;
+        border-radius: 0.75rem;
+      }
+      code {
+        background: rgba(255,255,255,0.1);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.375rem;
       }
     </style>
   </head>
   <body>
-    <div id="root" class="min-h-screen overflow-hidden"></div>
+    <div id="root"></div>
 
     <script type="text/javascript">
       const { useState } = React;
-      const { motion, AnimatePresence } = window["framer-motion"];
 
       const slides = [
         {
           id: "ethereumx",
           title: "Ethereum‑X",
-          tagline: "Where Ethereum Evolves Beyond Limits",
-          description:
-            "A next‑gen evolution layer designed for real‑time scalability, AI‑driven optimization, and a radically better developer & user experience — all powered by the BMverse ecosystem.",
-          features: [
-            "AI‑Enhanced PoP (AIPoP)",
-            "3,000+ TPS & Low Fees",
-            "Smart Context Contracts (SCC)",
-            "Dual‑Yield Staking (ETH + BMUSD)",
-            "99.9% Energy Efficient",
-            "Bridge‑less Multi‑Chain Wallet",
-          ],
         },
         {
           id: "antverse",
           title: "ANTVERSE",
-          tagline: "AI‑Driven Metaverse Economy",
-          description:
-            "Connects gaming, DeFi, and AI through decentralized identity and mirror liquidity. Every action = real‑world value.",
-          features: [
-            "Playable NFTs with DeFi Yield",
-            "Mirror Liquidity Economy",
-            "Cross‑Chain Social Tokens",
-            "BMUSD Integration",
-            "Builder APIs + SDK",
-            "Serverless Dynamic Assets (AWS)",
-          ],
         },
       ];
 
-      const App = () => {
-        const [index, setIndex] = useState(0);
-        const current = slides[index];
+      function App() {
+        const [tab, setTab] = useState("ethereumx");
 
-        return React.createElement(
-          "div",
-          { className: "px-6 py-12 max-w-5xl mx-auto" },
-          React.createElement(
-            "header",
-            { className: "flex justify-between items-center mb-12" },
-            React.createElement("h1", { className: "text-2xl font-bold" }, "BMverse"),
-            React.createElement(
-              "nav",
-              { className: "space-x-4" },
-              slides.map((s, i) =>
-                React.createElement(
-                  "button",
-                  {
-                    onClick: () => setIndex(i),
-                    className:
-                      (i === index ? "text-emerald-400 " : "text-white/70 hover:text-emerald-300 ") +
-                      "font-medium transition",
-                  },
-                  s.title
-                )
-              )
-            )
-          ),
+        return (
+          <div className="px-6 py-10 max-w-5xl mx-auto space-y-10">
+            {/* Header */}
+            <header className="flex justify-between items-center">
+              <h1 className="text-3xl font-bold">BMverse</h1>
+              <nav className="space-x-4">
+                {slides.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setTab(s.id)}
+                    className={`font-medium ${
+                      tab === s.id
+                        ? "text-emerald-300"
+                        : "text-white/70 hover:text-emerald-300"
+                    }`}
+                  >
+                    {s.title}
+                  </button>
+                ))}
+              </nav>
+            </header>
 
-          // Hero
-          React.createElement(
-            "section",
-            { className: "mb-12" },
-            React.createElement("h2", { className: "text-4xl font-bold mb-2" }, current.title),
-            React.createElement(
-              "h3",
-              {
-                className: "text-2xl font-semibold bg-gradient-to-r from-emerald-300 to-fuchsia-400 text-transparent bg-clip-text",
-              },
-              current.tagline
-            ),
-            React.createElement("p", { className: "text-white/70 mt-4 max-w-2xl" }, current.description)
-          ),
+            {/* Ethereum‑X Content */}
+            {tab === "ethereumx" && (
+              <section className="space-y-6">
+                <h2 className="text-4xl font-bold">Ethereum‑X</h2>
+                <p className="text-2xl font-semibold text-emerald-300">
+                  “Where Ethereum Evolves Beyond Limits.”
+                </p>
 
-          // Features
-          React.createElement(
-            "section",
-            { className: "mb-12" },
-            React.createElement("h3", { className: "text-xl font-semibold mb-4" }, "Key Features"),
-            React.createElement(
-              "ul",
-              { className: "grid sm:grid-cols-2 gap-4" },
-              current.features.map((f, idx) =>
-                React.createElement(
-                  "li",
-                  { key: idx, className: "border border-white/10 rounded-lg p-4 bg-white/5" },
-                  f
-                )
-              )
-            )
-          ),
+                <p>
+                  Ethereum‑X is the next-generation blockchain evolution by{" "}
+                  <b>BMverse</b>, designed to surpass Ethereum 2.0 through
+                  AI‑driven consensus, dynamic scalability, and true
+                  sustainability. It delivers performance, inclusivity, and
+                  cross‑chain simplicity — redefining what Ethereum can become.
+                </p>
 
-          // Antverse Token Section (only for ANTVERSE tab)
-          current.id === "antverse" &&
-            React.createElement(
-              "section",
-              { className: "token-section mb-16" },
-              React.createElement("h3", { className: "text-xl font-semibold mb-4" }, "ANTVERSE Token (Multi‑Chain)"),
+                {/* Overview Table */}
+                <div className="overflow-x-auto">
+                  <table className="w-full table-auto text-sm">
+                    <thead>
+                      <tr className="text-left border-b border-white/20">
+                        <th className="pb-2">Feature</th>
+                        <th className="pb-2">Ethereum 2.0</th>
+                        <th className="pb-2">Ethereum‑X (BMverse)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-white/10">
+                      {[
+                        ["Consensus", "Proof‑of‑Stake (PoS)", "AI‑Enhanced Proof‑of‑Participation (AIPoP)"],
+                        ["Speed", "15 – 30 TPS", "3 000+ TPS (native scaling)"],
+                        ["Gas Cost", "Moderate", "Up to 90% cheaper"],
+                        ["Smart Contracts", "EVM", "Smart Context Contracts (AI‑optimized)"],
+                        ["Staking", "ETH only", "Dual Yield: ETH + BMUSD"],
+                        ["Development", "Fragmented", "Unified SDK + AI Audit"],
+                        ["Governance", "Off‑chain", "On‑chain Quadratic Voting"],
+                        ["Sustainability", "99% < PoW", "99.9% + AI scheduling"],
+                        ["Interoperability", "Bridges required", "Built‑in multi‑chain wallet"],
+                      ].map((row, i) => (
+                        <tr key={i}>
+                          <td className="py-2">{row[0]}</td>
+                          <td className="py-2 text-white/70">{row[1]}</td>
+                          <td className="py-2 font-semibold">{row[2]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
-              // Solana
-              React.createElement("p", {}, "🔹 Solana Mint: "),
-              React.createElement("code", {}, "32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX"),
-              React.createElement("div", { className: "my-4" }, [
-                React.createElement("iframe", {
-                  src: "https://dexcheck.ai/app/solana/chart/3UC7ZHBPoe1GMpLHX3vod8RTexGfwpYL42N4sAgLraA4",
-                  title: "Solana Token Chart",
-                }),
-              ]),
+                {/* Sections */}
+                <article className="space-y-4">
+                  <h3 className="text-xl font-bold">Core Architecture</h3>
+                  <p>
+                    Ethereum‑X introduces dynamic scalability, AI‑driven
+                    optimization, and modular consensus adaptation far beyond
+                    Ethereum 2.0’s static validator model. It expands or
+                    compresses resources in real time for unmatched flexibility
+                    and speed.
+                  </p>
 
-              // TON
-              React.createElement("p", { className: "mt-6" }, "🔹 TON Jetton: "),
-              React.createElement("code", {}, "EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7"),
-              React.createElement("div", { className: "my-4" }, [
-                React.createElement("iframe", {
-                  src: "https://dyor.io/token/EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7",
-                  title: "TON Token Chart",
-                }),
-              ])
-            ),
+                  <h3 className="text-xl font-bold">Consensus Mechanism — AIPoP</h3>
+                  <p>
+                    AI‑Enhanced Proof‑of‑Participation (AIPoP) rewards
+                    validators based on performance, not capital size:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li>Removes the 32 ETH minimum barrier.</li>
+                    <li>Achieves ≈ 30% faster block finality.</li>
+                    <li>Supports micro‑staking for global accessibility.</li>
+                  </ul>
 
-          // Team Section
-          React.createElement(
-            "section",
-            { className: "mb-16" },
-            React.createElement("h3", { className: "text-xl font-semibold mb-6" }, "Meet the Team"),
-            React.createElement("ul", { className: "space-y-4" }, [
-              ["Hesam Khalaj", "CEO & Founder", "https://x.com/bmchains", "https://www.linkedin.com/in/hesam-khalaj"],
-              ["Ehsan Larani", "CFO & Marketing Advisor", "https://x.com/EhsanLarani", "https://tr.linkedin.com/in/ehsanlarani"],
-              ["Touraj Larani", "Technical Developer", "", ""],
-              ["Mehri Deldadeh", "Lead of Design", "", ""],
-            ].map(([name, role, x, li], idx) =>
-              React.createElement("li", { key: idx },
-                React.createElement("h4", { className: "text-white font-bold" }, name),
-                React.createElement("p", { className: "text-white/60" }, role),
-                x && React.createElement("a", { href: x, className: "text-emerald-400 mr-4", target: "_blank" }, "X"),
-                li && React.createElement("a", { href: li, className: "text-emerald-400", target: "_blank" }, "LinkedIn")
-              )
-            ))
-          ),
+                  <h3 className="text-xl font-bold">Transaction Speed & Cost</h3>
+                  <p>
+                    • 3 000+ TPS via native L2 acceleration + parallel
+                    validation. <br />
+                    • Up to 90% lower fees — no bridges or multi‑layer gas
+                    costs.
+                  </p>
 
-          // Footer
-          React.createElement(
-            "footer",
-            { className: "border-t border-white/10 pt-6 text-white/60 text-sm text-center" },
-            React.createElement("p", {}, `© ${new Date().getFullYear()} BMverse — All rights reserved.`),
-            React.createElement("p", {}, [
-              "Twitter: ",
-              React.createElement("a", {
-                href: "https://x.com/bmverseio",
-                className: "text-emerald-300",
-                target: "_blank",
-              }, "@bmverseio"),
-            ])
-          )
+                  <h3 className="text-xl font-bold">Smart Contract Intelligence</h3>
+                  <p>
+                    Smart Context Contracts (SCC) are AI‑aware and
+                    self‑optimizing:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li>Auto‑adjust gas.</li>
+                    <li>Enable multi‑chain execution.</li>
+                    <li>Route transactions to the lowest‑cost path.</li>
+                  </ul>
+
+                  <h3 className="text-xl font-bold">Token Economy & Staking</h3>
+                  <p>
+                    Dual‑yield staking rewards validators and holders in ETH
+                    (for security value) and BMUSD (for stable income). Predictable
+                    returns with no slashing risk.
+                  </p>
+
+                  <h3 className="text-xl font-bold">Developer Ecosystem</h3>
+                  <p>
+                    Unified SDK for all networks, AI‑auditing tools and
+                    auto‑debug assistants, and one‑click deployment with grant
+                    + bounty support.
+                  </p>
+
+                  <h3 className="text-xl font-bold">Sustainability & Efficiency</h3>
+                  <p>
+                    Through adaptive node sleeping and AI‑managed power
+                    scheduling, Ethereum‑X achieves 99.9% less energy use per
+                    transaction — a new benchmark in green blockchain tech.
+                  </p>
+
+                  <h3 className="text-xl font-bold">User Experience & Interoperability</h3>
+                  <p>
+                    Unified multi‑chain wallet with bridge‑free transfers and
+                    native BMUSD integration for stable pricing across dApps.
+                  </p>
+
+                  <h3 className="text-xl font-bold">Governance</h3>
+                  <p>
+                    On‑chain quadratic voting empowers users, validators, and
+                    developers with transparent decision‑making.
+                  </p>
+                </article>
+              </section>
+            )}
+
+            {/* ANTVERSE Content */}
+            {tab === "antverse" && (
+              <section className="space-y-6">
+                <h2 className="text-4xl font-bold">ANTVERSE</h2>
+                <p className="text-2xl font-semibold text-emerald-300">
+                  AI‑Driven Metaverse Economy
+                </p>
+                <p>
+                  ANTVERSE connects gaming, DeFi, and AI through decentralized
+                  identity and mirror liquidity. It powers smart worlds where
+                  every digital action creates real‑world value.
+                </p>
+
+                {/* ANTVERSE Token Multi‑Chain */}
+                <section className="space-y-4">
+                  <h3 className="text-2xl font-bold">ANTVERSE Token (Multi‑Chain)</h3>
+                  <p>
+                    🔹 Solana Token Mint:{" "}
+                    <code>32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX</code>
+                  </p>
+                  <iframe
+                    src="https://dexcheck.ai/app/solana/chart/3UC7ZHBPoe1GMpLHX3vod8RTexGfwpYL42N4sAgLraA4"
+                    title="ANTVERSE Solana Chart"
+                  ></iframe>
+
+                  <p>
+                    🔹 TON Jetton:<br />
+                    <code>EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7</code>
+                  </p>
+                  <iframe
+                    src="https://dyor.io/token/EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7"
+                    title="ANTVERSE TON Chart"
+                  ></iframe>
+                </section>
+              </section>
+            )}
+
+            {/* Team Section */}
+            <section className="space-y-4">
+              <h2 className="text-3xl font-bold">Meet the Team</h2>
+              {[
+                [
+                  "Hesam Khalaj",
+                  "CEO & Founder",
+                  "https://x.com/bmchains",
+                  "https://www.linkedin.com/in/hesam-khalaj",
+                ],
+                [
+                  "Ehsan Larani",
+                  "CFO & Marketing Advisor",
+                  "https://x.com/EhsanLarani",
+                  "https://tr.linkedin.com/in/ehsanlarani",
+                ],
+                ["Touraj Larani", "Technical Developer", "", ""],
+                ["Mehri Deldadeh", "Lead Designer", "", ""],
+              ].map(([n, r, x, l], i) => (
+                <div key={i} className="space-y-1">
+                  <p className="font-bold">{n}</p>
+                  <p className="text-white/70">{r}</p>
+                  <div className="space-x-4 text-emerald-300">
+                    {x && (
+                      <a href={x} target="_blank" rel="noopener noreferrer">
+                        X
+                      </a>
+                    )}
+                    {l && (
+                      <a href={l} target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </section>
+
+            {/* Footer */}
+            <footer className="text-center text-white/60 py-8 border-t border-white/10">
+              © {new Date().getFullYear()} BMverse • Built with 💡
+              <br />
+              Follow us on{" "}
+              <a
+                href="https://x.com/bmverseio"
+                className="text-emerald-300"
+                target="_blank"
+              >
+                @bmverseio
+              </a>
+            </footer>
+          </div>
         );
-      };
+      }
 
-      ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
     </script>
   </body>
 </html>
