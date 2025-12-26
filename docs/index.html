@@ -3,46 +3,32 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ANTVERSE — AI Metaverse Economy</title>
-
-<meta name="description" content="ANTVERSE is a next-generation AI-powered metaverse economy built on blockchain innovation." />
+<title>ANTVERSE – AI Driven Metaverse Economy</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#060a14;color:#fff;overflow-x:hidden}
+body{background:#050a12;color:#fff;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 
-/* Layout */
-section{padding:100px 8%}
-.container{max-width:1200px;margin:auto}
-h1{font-size:3.2rem;font-weight:800}
-h2{font-size:2.4rem;margin-bottom:10px}
-p{color:#cbd5e1;line-height:1.7}
+section{padding:90px 8%}
+h1{font-size:3rem;font-weight:800}
+h2{font-size:2.2rem}
+p{color:#cbd5e1;line-height:1.6}
+.btn{padding:14px 26px;border-radius:14px;display:inline-block;font-weight:600}
+.primary{background:#3df2b4;color:#000}
+.outline{border:1px solid #3df2b4;color:#3df2b4}
 
-/* Buttons */
-.btn{display:inline-block;padding:14px 28px;border-radius:12px;font-weight:600;margin:10px 10px 0 0}
-.btn-main{background:#3df2b4;color:#000}
-.btn-outline{border:1px solid #3df2b4;color:#3df2b4}
-
-/* Animations */
-.fade{opacity:0;transform:translateY(30px);transition:.8s}
+.fade{opacity:0;transform:translateY(40px);transition:0.8s}
 .show{opacity:1;transform:translateY(0)}
 
-/* Sections */
-.hero{text-align:center;min-height:100vh;display:flex;align-items:center}
-.hero span{color:#3df2b4}
+.hero{min-height:100vh;display:flex;align-items:center}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:40px}
+.card{background:#0e1624;padding:22px;border-radius:14px;border:1px solid #1e293b}
+.price-box{margin-top:20px;font-size:20px;color:#6fffd2}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-.card{background:#0d1320;border-radius:18px;padding:25px;border:1px solid #1c2333}
-.card:hover{border-color:#3df2b4;transform:translateY(-5px);transition:.3s}
-
-/* Team */
-.team img{width:120px;height:120px;border-radius:50%;border:3px solid #3df2b4}
-
-/* Footer */
-footer{text-align:center;padding:40px;color:#999;border-top:1px solid #222}
+footer{padding:40px;text-align:center;color:#777;border-top:1px solid #222}
 </style>
 </head>
 
@@ -50,53 +36,64 @@ footer{text-align:center;padding:40px;color:#999;border-top:1px solid #222}
 
 <!-- HERO -->
 <section class="hero fade">
-  <div class="container">
-    <h1>ANTVERSE<br><span>AI-Driven Metaverse Economy</span></h1>
-    <p>Building the next generation of decentralized intelligence, digital assets, and virtual economies.</p>
-    <a href="#token" class="btn btn-main">Explore Token</a>
-    <a href="#team" class="btn btn-outline">Meet the Team</a>
-    <div id="price" style="margin-top:20px;font-size:20px;"></div>
+  <div>
+    <span style="color:#6fffd2;">Live • ANTVERSE by BMverse</span>
+    <h1>AI-Driven<br>Metaverse Economy</h1>
+    <p>
+      ANTVERSE connects gaming, DeFi, and AI through decentralized identity,
+      mirror liquidity, and intelligent smart contracts.
+    </p>
+
+    <div style="margin-top:20px">
+      <a href="#token" class="btn primary">Launch Ecosystem</a>
+      <a href="#token" class="btn outline">Explore Token</a>
+    </div>
+
+    <div id="tokenPrice" class="price-box">Loading price...</div>
   </div>
 </section>
 
-<!-- TOKEN -->
-<section id="token" class="fade">
-  <div class="container">
-    <h2>ANTVERSE Token</h2>
-    <p>The fuel of the ecosystem — powering governance, AI, NFTs, and utility.</p>
+<!-- FEATURES -->
+<section class="fade">
+  <h2>Core Capabilities</h2>
+  <div class="features">
+    <div class="card">AI Worlds</div>
+    <div class="card">Playable NFTs</div>
+    <div class="card">Mirror Liquidity</div>
+    <div class="card">Cross-Chain Economy</div>
+    <div class="card">Smart Contracts</div>
+    <div class="card">On-Chain Identity</div>
+  </div>
+</section>
 
-    <div class="grid">
-      <div class="card"><h3>Network</h3><p>Solana</p></div>
-      <div class="card"><h3>Utility</h3><p>Governance • AI • NFTs</p></div>
-      <div class="card"><h3>Token Model</h3><p>Deflationary + Utility Driven</p></div>
-    </div>
+<!-- TOKEN INFO -->
+<section id="token" class="fade">
+  <h2>ANTVERSE Token</h2>
+  <p>
+    ANTVERSE is the core utility token powering governance, AI computation,
+    cross-chain liquidity, and metaverse interactions.
+  </p>
+
+  <div class="features">
+    <div class="card">Network: Solana</div>
+    <div class="card">Utility: Governance + AI</div>
+    <div class="card">Model: Deflationary</div>
+    <div class="card">Use: DeFi, NFTs, Games</div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section id="team" class="fade">
-  <div class="container">
-    <h2>Core Team</h2>
-    <div class="grid team">
-
-      <div class="card">
-        <img src="images/hesam.jpg">
-        <h3>Hesam Khalaj</h3>
-        <p>Founder & CEO</p>
-      </div>
-
-      <div class="card">
-        <img src="images/ehsan.jpg">
-        <h3>Ehsan Larani</h3>
-        <p>CFO & Marketing Advisor</p>
-      </div>
-
-      <div class="card">
-        <img src="images/omid.jpg">
-        <h3>Omid Larani</h3>
-        <p>Lead Blockchain Engineer</p>
-      </div>
-
+<section class="fade">
+  <h2>Core Team</h2>
+  <div class="features">
+    <div class="card">
+      <strong>Hesam Khalaj</strong><br/>Founder & CEO
+    </div>
+    <div class="card">
+      <strong>Ehsan Larani</strong><br/>CFO & Marketing
+    </div>
+    <div class="card">
+      <strong>Omid Larani</strong><br/>Lead Blockchain Engineer
     </div>
   </div>
 </section>
@@ -106,27 +103,26 @@ footer{text-align:center;padding:40px;color:#999;border-top:1px solid #222}
 </footer>
 
 <script>
-// animation on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
-});
-document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+// animation
+const obs = new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting && x.target.classList.add("show")));
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 
-// live token price
+// Jupiter price
+const TOKEN = "32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX";
 async function loadPrice(){
   try{
-    const r = await fetch("https://price.jup.ag/v4/price?ids=32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX");
+    const r = await fetch(`https://api.jup.ag/price/v3?ids=${TOKEN}`);
     const d = await r.json();
-    document.getElementById("price").innerHTML =
-      "Live Price: $" + d.data["32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX"].price.toFixed(6);
-  } catch(e){
-    document.getElementById("price").innerText = "Live price unavailable";
+    document.getElementById("tokenPrice").innerHTML =
+      "Live Price: $" + d.data[TOKEN].price.toFixed(6);
+  }catch(e){
+    document.getElementById("tokenPrice").innerText="Price unavailable";
   }
 }
 loadPrice();
-setInterval(loadPrice, 30000);
+setInterval(loadPrice,30000);
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").innerText = new Date().getFullYear();
 </script>
 
 </body>
