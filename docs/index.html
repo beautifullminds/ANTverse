@@ -1,141 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>BMVERSE – AI Metaverse & Ethereum-X</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="BMVERSE – AI Driven Metaverse Economy & Ethereum-X Infrastructure" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMverse | Ethereum-X & ANTVERSE</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React + ReactDOM -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Babel for JSX -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Particles -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- Framer Motion -->
-  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+<style>
+body {
+  background: #0b0f14;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+</style>
 </head>
 
-<body class="bg-[#0b0f14] text-white">
+<body>
 
-<div id="root"></div>
+<!-- BACKGROUND -->
+<div id="particles-js" class="fixed inset-0 -z-10"></div>
 
-<script type="text/babel">
+<!-- HERO -->
+<section class="text-center py-20 px-6">
+  <h1 class="text-5xl font-bold">ANTVERSE</h1>
+  <p class="text-xl text-gray-300 mt-4">AI-Driven Metaverse Economy</p>
 
-const { motion, AnimatePresence } = window['framer-motion'];
+  <p class="max-w-3xl mx-auto mt-6 text-gray-400">
+    ANTVERSE connects gaming, DeFi, and AI through decentralized identity and
+    real-time economic intelligence.
+  </p>
 
-function App() {
-  const [tab, setTab] = React.useState("antverse");
+  <div class="mt-8 flex justify-center gap-4">
+    <a href="#token" class="bg-emerald-500 px-6 py-3 rounded-xl font-semibold text-black">Live Token</a>
+    <a href="#ethx" class="border border-white/20 px-6 py-3 rounded-xl">Explore Ethereum-X</a>
+  </div>
+</section>
 
-  const content = {
-    antverse: {
-      title: "ANTVERSE",
-      subtitle: "AI-Driven Metaverse Economy",
-      desc: "A decentralized metaverse combining AI, DeFi, and gaming with real economic value.",
-      features: [
-        "Playable NFTs",
-        "Mirror Liquidity",
-        "Cross-Chain Economy",
-        "AI Game Logic",
-        "Creator Monetization",
-        "On-Chain Ownership"
-      ]
-    },
-    ethereumx: {
-      title: "ETHEREUM-X",
-      subtitle: "Where Ethereum Evolves Beyond Limits",
-      desc: "A next-gen execution layer built for performance, scalability, and AI-optimized computation.",
-      features: [
-        "3,000+ TPS",
-        "AI-Optimized Smart Contracts",
-        "Gas Reduction up to 90%",
-        "Cross-Chain Interoperability",
-        "Smart Context Contracts",
-        "Dual Yield Model"
-      ]
-    }
-  };
+<!-- ETH-X SECTION -->
+<section id="ethx" class="py-20 bg-[#0e1118] px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-4">Ethereum-X</h2>
+    <p class="text-gray-400 max-w-3xl">
+      A next-generation evolution of Ethereum powered by AI-driven consensus,
+      ultra-fast execution, and sustainable architecture.
+    </p>
 
-  const active = content[tab];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
-
-      {/* HEADER */}
-      <header className="flex justify-between items-center px-8 py-6">
-        <h1 className="text-xl font-bold">BMVERSE</h1>
-        <div className="space-x-4">
-          <button onClick={() => setTab("antverse")} className="hover:text-emerald-400">ANTVERSE</button>
-          <button onClick={() => setTab("ethereumx")} className="hover:text-emerald-400">ETHEREUM-X</button>
-        </div>
-      </header>
-
-      {/* HERO */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-5xl font-bold mb-4">{active.title}</h1>
-        <p className="text-xl text-emerald-400 mb-4">{active.subtitle}</p>
-        <p className="max-w-2xl mx-auto text-white/80">{active.desc}</p>
-
-        <div className="mt-8 flex justify-center gap-4">
-          <button className="px-6 py-3 bg-emerald-500 rounded-xl text-black font-semibold">
-            Launch App
-          </button>
-          <button className="px-6 py-3 border border-white/30 rounded-xl">
-            Learn More
-          </button>
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-semibold mb-8 text-center">Key Features</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {active.features.map((f, i) => (
-            <div key={i} className="p-6 rounded-xl bg-white/5 border border-white/10">
-              <h3 className="font-semibold mb-2">{f}</h3>
-              <p className="text-sm text-white/70">
-                Designed to scale securely and efficiently across ecosystems.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="bg-black/40 py-20">
-        <h2 className="text-center text-3xl font-semibold mb-10">Core Team</h2>
-        <div className="flex justify-center gap-10 flex-wrap">
-          <div className="text-center">
-            <div className="w-24 h-24 bg-gray-700 rounded-full mx-auto mb-4"></div>
-            <h3 className="font-semibold">Hesam Khalaj</h3>
-            <p className="text-sm text-white/60">Founder & CEO</p>
-          </div>
-          <div className="text-center">
-            <div className="w-24 h-24 bg-gray-700 rounded-full mx-auto mb-4"></div>
-            <h3 className="font-semibold">Ehsan Larani</h3>
-            <p className="text-sm text-white/60">CFO / Strategy</p>
-          </div>
-          <div className="text-center">
-            <div className="w-24 h-24 bg-gray-700 rounded-full mx-auto mb-4"></div>
-            <h3 className="font-semibold">Omid Larani</h3>
-            <p className="text-sm text-white/60">Technical Lead</p>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="py-10 text-center text-white/60 border-t border-white/10">
-        <p>© {new Date().getFullYear()} BMVERSE — All Rights Reserved</p>
-      </footer>
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <div class="p-6 bg-white/5 rounded-xl">⚡ 3,000+ TPS</div>
+      <div class="p-6 bg-white/5 rounded-xl">🧠 AI Proof-of-Participation</div>
+      <div class="p-6 bg-white/5 rounded-xl">🌱 99.9% Energy Efficient</div>
+      <div class="p-6 bg-white/5 rounded-xl">💸 90% Lower Gas</div>
+      <div class="p-6 bg-white/5 rounded-xl">🔗 Built-in Cross-Chain</div>
+      <div class="p-6 bg-white/5 rounded-xl">🧩 Smart Context Contracts</div>
     </div>
-  );
-}
+  </div>
+</section>
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+<!-- ANTVERSE -->
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold">ANTVERSE Ecosystem</h2>
+    <p class="text-gray-400 mt-3">
+      A complete AI-powered gaming & DeFi universe built on decentralized identity.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <div class="p-6 bg-white/5 rounded-xl">🎮 Playable NFTs</div>
+      <div class="p-6 bg-white/5 rounded-xl">🔁 Mirror Liquidity</div>
+      <div class="p-6 bg-white/5 rounded-xl">🧠 AI Game Logic</div>
+      <div class="p-6 bg-white/5 rounded-xl">🌐 Cross-Chain Economy</div>
+      <div class="p-6 bg-white/5 rounded-xl">📊 Real-time Analytics</div>
+      <div class="p-6 bg-white/5 rounded-xl">🧩 Modular Assets</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOKEN PRICE -->
+<section id="token" class="py-20 bg-[#0e1118] text-center">
+  <h2 class="text-3xl font-bold mb-6">Live Token Price</h2>
+  <div class="text-4xl font-bold text-emerald-400" id="price">$0.00</div>
+</section>
+
+<!-- TEAM -->
+<section class="py-20">
+  <h2 class="text-center text-3xl font-bold mb-10">Core Team</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="text-center">
+      <img src="team/hesam.jpg" class="w-32 h-32 mx-auto rounded-full"/>
+      <h3 class="mt-4 text-lg font-semibold">Hesam Khalaj</h3>
+      <p class="text-gray-400">Founder & CEO</p>
+    </div>
+    <div class="text-center">
+      <img src="team/ehsan.jpg" class="w-32 h-32 mx-auto rounded-full"/>
+      <h3 class="mt-4 text-lg font-semibold">Ehsan Larani</h3>
+      <p class="text-gray-400">CFO & Strategy</p>
+    </div>
+    <div class="text-center">
+      <img src="team/omid.jpg" class="w-32 h-32 mx-auto rounded-full"/>
+      <h3 class="mt-4 text-lg font-semibold">Omid Larani</h3>
+      <p class="text-gray-400">Lead Developer</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-10 text-gray-500">
+  © 2025 BMverse — All Rights Reserved
+</footer>
+
+<!-- PRICE FETCH -->
+<script>
+async function loadPrice() {
+  try {
+    const r = await fetch("https://price.jup.ag/v4/price?ids=So11111111111111111111111111111111111111112");
+    const d = await r.json();
+    document.getElementById("price").innerText = "$" + d.data.So11111111111111111111111111111111111111112.price.toFixed(4);
+  } catch (e) {}
+}
+loadPrice();
+setInterval(loadPrice, 15000);
+</script>
+
+<!-- PARTICLES -->
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#00ffd5" },
+    size: { value: 3 },
+    move: { speed: 1 },
+    line_linked: { enable: true, color: "#00ffd5" }
+  }
+});
 </script>
 
 </body>
