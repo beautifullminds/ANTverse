@@ -1,168 +1,124 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useWallet } from "@solana/wallet-adapter-react";
-
-const ANTVERSE_MINT = "32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX";
 
 export default function BMverseLanding() {
-  const wallet = useWallet();
-  const [price, setPrice] = useState(null);
-  const [change, setChange] = useState(null);
 
-  useEffect(() => {
-    async function fetchPrice() {
-      try {
-        const res = await fetch(
-          `https://api.jup.ag/price/v3?ids=${ANTVERSE_MINT}`
-        );
-        const json = await res.json();
-        const data = json[ANTVERSE_MINT];
-        if (data) {
-          setPrice(data.usdPrice);
-          setChange(data.priceChange24h);
-        }
-      } catch (e) {
-        console.error("Price fetch failed");
-      }
+  const slides = [
+    {
+      id: "ethereumx",
+      brand: "BMverse",
+      title: "Ethereum-X",
+      tagline: "Where Ethereum Evolves Beyond Limits",
+      description:
+        "A next-gen evolution layer designed for real-time scalability, AI-driven optimization, and a radically better developer experience.",
+      badges: ["Finality +30%", "3,000+ TPS", "Gas −90%", "Dual-Yield", "SCC", "99.9% Green"],
+      features: [
+        { title: "AI-Enhanced Consensus", body: "Adaptive consensus that rewards performance and optimizes execution." },
+        { title: "Smart Context Contracts", body: "AI-optimized contracts that adapt in real time." },
+        { title: "3,000+ TPS", body: "High throughput with deterministic finality." },
+        { title: "Dual Yield", body: "Earn from network and application activity." },
+        { title: "Energy Efficient", body: "99.9% energy reduction via intelligent scheduling." },
+        { title: "Cross-Chain Ready", body: "Native multi-chain interoperability." },
+      ],
+      theme: { from: "from-emerald-300", to: "to-fuchsia-400", accent: "bg-emerald-400" },
+      primaryCta: "Get Early Access",
+      secondaryCta: "Explore Ethereum-X",
+    },
+    {
+      id: "antverse",
+      brand: "BMverse",
+      title: "ANTVERSE",
+      tagline: "AI-Driven Metaverse Economy",
+      description:
+        "ANTVERSE connects gaming, DeFi, and AI into a unified economic layer powering virtual worlds, digital ownership, and creator economies.",
+      badges: ["AI Worlds", "Playable NFTs", "Mirror Liquidity", "Cross-Chain Economy"],
+      features: [
+        { title: "AI Worlds", body: "Self-evolving environments powered by real-time data." },
+        { title: "Playable NFTs", body: "Assets that earn, evolve, and interact across worlds." },
+        { title: "Mirror Liquidity", body: "Synchronized liquidity across chains and games." },
+        { title: "Creator Economy", body: "Tools for monetization, royalties, and governance." },
+      ],
+      theme: { from: "from-amber-300", to: "to-pink-500", accent: "bg-amber-400" },
+      primaryCta: "Launch Your World",
+      secondaryCta: "Explore Ecosystem",
     }
-    fetchPrice();
-    const t = setInterval(fetchPrice, 60000);
-    return () => clearInterval(t);
-  }, []);
+  ];
+
+  const team = [
+    { name: "Hesam Khalaj", role: "Founder & CEO" },
+    { name: "Ehsan Larani", role: "CFO & Marketing Advisor" },
+    { name: "Omid Larani", role: "Lead Blockchain Engineer" },
+  ];
+
+  const [index, setIndex] = useState(0);
+  const current = slides[index];
 
   return (
-    <div className="min-h-screen bg-[#0b0f14] text-white">
+    <div className="min-h-screen bg-[#0b0f14] text-white overflow-hidden">
 
       {/* HERO */}
-      <section className="px-6 py-24 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-          <div>
-            <h1 className="text-5xl font-bold leading-tight">
-              ANTVERSE<br />
-              <span className="text-emerald-400">AI-Driven Metaverse Economy</span>
-            </h1>
+      <section className="px-6 py-20 max-w-7xl mx-auto">
+        <div className="mb-6 text-sm text-emerald-400">
+          Live • {current.brand}
+        </div>
 
-            <p className="mt-6 text-lg text-white/80">
-              A decentralized ecosystem where AI, DeFi, and NFTs merge into
-              one evolving digital civilization.
-            </p>
+        <h1 className="text-4xl md:text-6xl font-bold">
+          {current.title}
+        </h1>
 
-            <div className="mt-8 flex gap-4">
-              <a
-                href="#token"
-                className="px-6 py-3 bg-emerald-400 text-black rounded-xl font-semibold"
-              >
-                Explore Token
-              </a>
-              <a
-                href="#team"
-                className="px-6 py-3 border border-white/20 rounded-xl"
-              >
-                Team
-              </a>
-            </div>
-          </div>
+        <p className="mt-4 max-w-2xl text-white/80">
+          {current.description}
+        </p>
 
-          <div className="rounded-3xl bg-white/5 border border-white/10 p-8">
-            <h3 className="text-xl font-semibold mb-4">Live Token Data</h3>
-            <p className="text-sm text-white/70">ANTVERSE (Solana)</p>
-            <div className="mt-4 text-3xl font-bold">
-              {price ? `$${price.toFixed(6)}` : "Loading..."}
+        <div className="mt-6 flex gap-4 flex-wrap">
+          <button className="px-6 py-3 bg-emerald-500 text-black rounded-xl font-semibold">
+            {current.primaryCta}
+          </button>
+          <button className="px-6 py-3 border border-white/20 rounded-xl">
+            {current.secondaryCta}
+          </button>
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+          {current.badges.map((b, i) => (
+            <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/10">
+              {b}
             </div>
-            <div
-              className={`mt-2 text-sm ${
-                change >= 0 ? "text-green-400" : "text-red-400"
-              }`}
-            >
-              24h: {change ? `${change.toFixed(2)}%` : "--"}
-            </div>
-            <div className="mt-4">
-              <WalletMultiButton />
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* TOKENOMICS */}
-      <section id="token" className="px-6 py-24 bg-[#0f141f]">
-        <h2 className="text-3xl font-semibold text-center">Tokenomics</h2>
-        <p className="text-center text-white/70 mt-3">
-          Designed for sustainability, liquidity, and long-term growth.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto">
-          {[
-            ["Community & Rewards", "40%"],
-            ["Liquidity & Market", "15%"],
-            ["Team & Advisors", "15%"],
-            ["Treasury", "20%"],
-            ["Partners", "10%"],
-          ].map(([label, value]) => (
-            <div key={label} className="bg-white/5 border border-white/10 p-6 rounded-xl">
-              <h4 className="text-lg font-semibold">{label}</h4>
-              <p className="text-emerald-400 text-xl mt-2">{value}</p>
+      {/* FEATURES */}
+      <section className="px-6 py-20 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-6">Core Capabilities</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {current.features.map((f, i) => (
+            <div key={i} className="p-6 rounded-xl border border-white/10 bg-white/5">
+              <h3 className="font-semibold text-lg">{f.title}</h3>
+              <p className="text-white/70 mt-2">{f.body}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* TEAM */}
-      <section id="team" className="px-6 py-24">
-        <h2 className="text-3xl text-center font-semibold mb-10">Core Team</h2>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <TeamCard
-            name="Hesam Khalaj"
-            role="Founder & CEO"
-            img="/images/hesam.jpg"
-            links={[
-              ["X", "https://x.com/bmchains"],
-              ["LinkedIn", "https://www.linkedin.com/in/hesam-khalaj"],
-            ]}
-          />
-          <TeamCard
-            name="Ehsan Larani"
-            role="CFO & Marketing Advisor"
-            img="/images/ehsan.jpg"
-            links={[
-              ["X", "https://x.com/EhsanLarani"],
-              ["LinkedIn", "https://tr.linkedin.com/in/ehsanlarani"],
-            ]}
-          />
-          <TeamCard
-            name="Omid Larani"
-            role="Lead Blockchain Engineer"
-            img="/images/omid.jpg"
-          />
+      <section className="px-6 py-20 bg-black/40">
+        <h2 className="text-3xl font-semibold text-center mb-10">Core Team</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {team.map((m, i) => (
+            <div key={i} className="text-center">
+              <div className="mx-auto h-28 w-28 rounded-full bg-white/10 mb-4"></div>
+              <h3 className="font-semibold">{m.name}</h3>
+              <p className="text-white/70">{m.role}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 text-center text-white/60">
+      <footer className="text-center py-10 text-white/60">
         © {new Date().getFullYear()} BMVERSE — All Rights Reserved
       </footer>
-    </div>
-  );
-}
-
-function TeamCard({ name, role, img, links = [] }) {
-  return (
-    <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-      <img
-        src={img}
-        alt={name}
-        className="mx-auto w-28 h-28 rounded-full object-cover border-2 border-emerald-400"
-      />
-      <h3 className="mt-4 text-lg font-semibold">{name}</h3>
-      <p className="text-emerald-400">{role}</p>
-      <div className="mt-3 flex justify-center gap-4">
-        {links.map(([label, url]) => (
-          <a key={label} href={url} target="_blank" className="text-sm text-white/70 hover:text-emerald-400">
-            {label}
-          </a>
-        ))}
-      </div>
     </div>
   );
 }
