@@ -1,142 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>BMVERSE | Ethereum-X & ANTVERSE</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMverse | Ethereum‑X + Antverse</title>
+    <script defer src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script defer src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #0b0f14;
+        color: white;
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .token-section iframe {
+        width: 100%;
+        height: 320px;
+        border-radius: 1rem;
+        border: 1px solid #444;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="min-h-screen overflow-hidden"></div>
 
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript">
+      const { useState } = React;
+      const { motion, AnimatePresence } = window["framer-motion"];
 
-<!-- Particle Background -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+      const slides = [
+        {
+          id: "ethereumx",
+          title: "Ethereum‑X",
+          tagline: "Where Ethereum Evolves Beyond Limits",
+          description:
+            "A next‑gen evolution layer designed for real‑time scalability, AI‑driven optimization, and a radically better developer & user experience — all powered by the BMverse ecosystem.",
+          features: [
+            "AI‑Enhanced PoP (AIPoP)",
+            "3,000+ TPS & Low Fees",
+            "Smart Context Contracts (SCC)",
+            "Dual‑Yield Staking (ETH + BMUSD)",
+            "99.9% Energy Efficient",
+            "Bridge‑less Multi‑Chain Wallet",
+          ],
+        },
+        {
+          id: "antverse",
+          title: "ANTVERSE",
+          tagline: "AI‑Driven Metaverse Economy",
+          description:
+            "Connects gaming, DeFi, and AI through decentralized identity and mirror liquidity. Every action = real‑world value.",
+          features: [
+            "Playable NFTs with DeFi Yield",
+            "Mirror Liquidity Economy",
+            "Cross‑Chain Social Tokens",
+            "BMUSD Integration",
+            "Builder APIs + SDK",
+            "Serverless Dynamic Assets (AWS)",
+          ],
+        },
+      ];
 
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      const App = () => {
+        const [index, setIndex] = useState(0);
+        const current = slides[index];
 
-<style>
-body {
-  background:#0b0f14;
-  color:white;
-}
-</style>
-</head>
+        return React.createElement(
+          "div",
+          { className: "px-6 py-12 max-w-5xl mx-auto" },
+          React.createElement(
+            "header",
+            { className: "flex justify-between items-center mb-12" },
+            React.createElement("h1", { className: "text-2xl font-bold" }, "BMverse"),
+            React.createElement(
+              "nav",
+              { className: "space-x-4" },
+              slides.map((s, i) =>
+                React.createElement(
+                  "button",
+                  {
+                    onClick: () => setIndex(i),
+                    className:
+                      (i === index ? "text-emerald-400 " : "text-white/70 hover:text-emerald-300 ") +
+                      "font-medium transition",
+                  },
+                  s.title
+                )
+              )
+            )
+          ),
 
-<body>
+          // Hero
+          React.createElement(
+            "section",
+            { className: "mb-12" },
+            React.createElement("h2", { className: "text-4xl font-bold mb-2" }, current.title),
+            React.createElement(
+              "h3",
+              {
+                className: "text-2xl font-semibold bg-gradient-to-r from-emerald-300 to-fuchsia-400 text-transparent bg-clip-text",
+              },
+              current.tagline
+            ),
+            React.createElement("p", { className: "text-white/70 mt-4 max-w-2xl" }, current.description)
+          ),
 
-<!-- PARTICLES -->
-<div id="particles-js" class="fixed inset-0 -z-10"></div>
+          // Features
+          React.createElement(
+            "section",
+            { className: "mb-12" },
+            React.createElement("h3", { className: "text-xl font-semibold mb-4" }, "Key Features"),
+            React.createElement(
+              "ul",
+              { className: "grid sm:grid-cols-2 gap-4" },
+              current.features.map((f, idx) =>
+                React.createElement(
+                  "li",
+                  { key: idx, className: "border border-white/10 rounded-lg p-4 bg-white/5" },
+                  f
+                )
+              )
+            )
+          ),
 
-<!-- HERO -->
-<section class="py-24 text-center">
-  <h1 class="text-5xl font-bold">ANTVERSE</h1>
-  <p class="text-xl text-gray-300 mt-4">
-    AI-Driven Metaverse Economy
-  </p>
-  <p class="max-w-2xl mx-auto mt-4 text-gray-400">
-    A decentralized ecosystem merging AI, gaming, DeFi, and next-generation blockchain infrastructure.
-  </p>
+          // Antverse Token Section (only for ANTVERSE tab)
+          current.id === "antverse" &&
+            React.createElement(
+              "section",
+              { className: "token-section mb-16" },
+              React.createElement("h3", { className: "text-xl font-semibold mb-4" }, "ANTVERSE Token (Multi‑Chain)"),
 
-  <div class="mt-6 flex justify-center gap-4">
-    <a href="#ethx" class="bg-emerald-500 px-6 py-3 rounded-lg text-black font-semibold">Explore ETH-X</a>
-    <a href="#token" class="border border-white/30 px-6 py-3 rounded-lg">Live Token</a>
-  </div>
-</section>
+              // Solana
+              React.createElement("p", {}, "🔹 Solana Mint: "),
+              React.createElement("code", {}, "32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX"),
+              React.createElement("div", { className: "my-4" }, [
+                React.createElement("iframe", {
+                  src: "https://dexcheck.ai/app/solana/chart/3UC7ZHBPoe1GMpLHX3vod8RTexGfwpYL42N4sAgLraA4",
+                  title: "Solana Token Chart",
+                }),
+              ]),
 
-<!-- ETH-X -->
-<section id="ethx" class="py-20 bg-[#0e1118]">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold">Ethereum-X</h2>
-    <p class="mt-3 text-gray-400">
-      Next-generation blockchain designed for scalability, sustainability and AI optimization.
-    </p>
+              // TON
+              React.createElement("p", { className: "mt-6" }, "🔹 TON Jetton: "),
+              React.createElement("code", {}, "EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7"),
+              React.createElement("div", { className: "my-4" }, [
+                React.createElement("iframe", {
+                  src: "https://dyor.io/token/EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7",
+                  title: "TON Token Chart",
+                }),
+              ])
+            ),
 
-    <div class="grid md:grid-cols-3 gap-6 mt-10">
-      <div class="p-6 bg-white/5 rounded-xl">⚡ 3,000+ TPS</div>
-      <div class="p-6 bg-white/5 rounded-xl">🧠 AI Proof-of-Participation</div>
-      <div class="p-6 bg-white/5 rounded-xl">💸 90% Lower Gas Fees</div>
-      <div class="p-6 bg-white/5 rounded-xl">🌱 99.9% Energy Efficient</div>
-      <div class="p-6 bg-white/5 rounded-xl">🔗 Cross-Chain Native</div>
-      <div class="p-6 bg-white/5 rounded-xl">🔒 Secure Smart Contracts</div>
-    </div>
-  </div>
-</section>
+          // Team Section
+          React.createElement(
+            "section",
+            { className: "mb-16" },
+            React.createElement("h3", { className: "text-xl font-semibold mb-6" }, "Meet the Team"),
+            React.createElement("ul", { className: "space-y-4" }, [
+              ["Hesam Khalaj", "CEO & Founder", "https://x.com/bmchains", "https://www.linkedin.com/in/hesam-khalaj"],
+              ["Ehsan Larani", "CFO & Marketing Advisor", "https://x.com/EhsanLarani", "https://tr.linkedin.com/in/ehsanlarani"],
+              ["Touraj Larani", "Technical Developer", "", ""],
+              ["Mehri Deldadeh", "Lead of Design", "", ""],
+            ].map(([name, role, x, li], idx) =>
+              React.createElement("li", { key: idx },
+                React.createElement("h4", { className: "text-white font-bold" }, name),
+                React.createElement("p", { className: "text-white/60" }, role),
+                x && React.createElement("a", { href: x, className: "text-emerald-400 mr-4", target: "_blank" }, "X"),
+                li && React.createElement("a", { href: li, className: "text-emerald-400", target: "_blank" }, "LinkedIn")
+              )
+            ))
+          ),
 
-<!-- ANTVERSE -->
-<section class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold">ANTVERSE Ecosystem</h2>
-    <p class="text-gray-400 mt-4">
-      A decentralized universe where AI, gaming, and finance merge.
-    </p>
+          // Footer
+          React.createElement(
+            "footer",
+            { className: "border-t border-white/10 pt-6 text-white/60 text-sm text-center" },
+            React.createElement("p", {}, `© ${new Date().getFullYear()} BMverse — All rights reserved.`),
+            React.createElement("p", {}, [
+              "Twitter: ",
+              React.createElement("a", {
+                href: "https://x.com/bmverseio",
+                className: "text-emerald-300",
+                target: "_blank",
+              }, "@bmverseio"),
+            ])
+          )
+        );
+      };
 
-    <div class="grid md:grid-cols-3 gap-6 mt-10">
-      <div class="p-6 bg-white/5 rounded-xl">🎮 Play-to-Earn Worlds</div>
-      <div class="p-6 bg-white/5 rounded-xl">🧠 AI-Driven Gameplay</div>
-      <div class="p-6 bg-white/5 rounded-xl">🔁 Mirror Liquidity</div>
-      <div class="p-6 bg-white/5 rounded-xl">🪙 On-chain Assets</div>
-      <div class="p-6 bg-white/5 rounded-xl">🌐 Cross-Chain Economy</div>
-      <div class="p-6 bg-white/5 rounded-xl">⚙️ Developer SDK</div>
-    </div>
-  </div>
-</section>
-
-<!-- TOKEN PRICE -->
-<section id="token" class="py-20 text-center bg-[#0e1118]">
-  <h2 class="text-3xl font-bold mb-4">Live Token Price</h2>
-  <div id="price" class="text-4xl text-emerald-400 font-bold">$0.00</div>
-</section>
-
-<!-- TEAM -->
-<section class="py-20">
-  <h2 class="text-center text-3xl font-bold mb-10">Core Team</h2>
-
-  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-    <div class="text-center">
-      <img src="team/hesam.jpg" class="w-32 h-32 mx-auto rounded-full" />
-      <h3 class="mt-4 font-semibold">Hesam Khalaj</h3>
-      <p class="text-gray-400">Founder & CEO</p>
-    </div>
-
-    <div class="text-center">
-      <img src="team/ehsan.jpg" class="w-32 h-32 mx-auto rounded-full" />
-      <h3 class="mt-4 font-semibold">Ehsan Larani</h3>
-      <p class="text-gray-400">CFO & Strategy</p>
-    </div>
-
-    <div class="text-center">
-      <img src="team/omid.jpg" class="w-32 h-32 mx-auto rounded-full" />
-      <h3 class="mt-4 font-semibold">Omid Larani</h3>
-      <p class="text-gray-400">Lead Developer</p>
-    </div>
-  </div>
-</section>
-
-<footer class="py-10 text-center text-gray-500">
-  © 2025 BMVERSE — All Rights Reserved
-</footer>
-
-<script>
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60 },
-    color: { value: "#00ffd5" },
-    size: { value: 3 },
-    line_linked: { enable: true, color: "#00ffd5" },
-    move: { speed: 1 }
-  }
-});
-
-async function loadPrice() {
-  try {
-    const r = await fetch("https://price.jup.ag/v4/price?ids=So11111111111111111111111111111111111111112");
-    const d = await r.json();
-    document.getElementById("price").innerText = "$" + d.data.So11111111111111111111111111111111111111112.price.toFixed(4);
-  } catch {}
-}
-loadPrice();
-setInterval(loadPrice, 15000);
-</script>
-
-</body>
+      ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+    </script>
+  </body>
 </html>
