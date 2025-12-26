@@ -3,174 +3,130 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BMVERSE — AI Metaverse Economy</title>
+<title>ANTVERSE — AI Metaverse Economy</title>
 
-<meta name="description" content="BMVERSE is an AI-powered decentralized metaverse ecosystem combining blockchain, NFTs, and autonomous economies." />
-<meta name="theme-color" content="#0b0f14" />
+<meta name="description" content="ANTVERSE is a next-generation AI-powered metaverse economy built on blockchain innovation." />
 
-<link rel="icon" href="/favicon.ico" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-body {
-  background: radial-gradient(circle at top, #0b1020, #05070d);
-  color: #fff;
-  overflow-x: hidden;
-}
-a { text-decoration: none; color: inherit; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#060a14;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
 
-.container { max-width: 1200px; margin: auto; padding: 0 20px; }
+/* Layout */
+section{padding:100px 8%}
+.container{max-width:1200px;margin:auto}
+h1{font-size:3.2rem;font-weight:800}
+h2{font-size:2.4rem;margin-bottom:10px}
+p{color:#cbd5e1;line-height:1.7}
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 3.2rem;
-  font-weight: 800;
-}
-.hero span {
-  color: #3df2b4;
-}
-.hero p {
-  max-width: 680px;
-  margin: 20px auto;
-  color: #ccc;
-  font-size: 1.1rem;
-}
-.hero .btns a {
-  display: inline-block;
-  margin: 12px;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-.btn-main { background: #3df2b4; color: #000; }
-.btn-outline { border: 1px solid #3df2b4; color: #3df2b4; }
+/* Buttons */
+.btn{display:inline-block;padding:14px 28px;border-radius:12px;font-weight:600;margin:10px 10px 0 0}
+.btn-main{background:#3df2b4;color:#000}
+.btn-outline{border:1px solid #3df2b4;color:#3df2b4}
 
-/* SECTIONS */
-section { padding: 100px 0; }
+/* Animations */
+.fade{opacity:0;transform:translateY(30px);transition:.8s}
+.show{opacity:1;transform:translateY(0)}
 
-.section-title {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-.section-sub {
-  text-align: center;
-  color: #aaa;
-  max-width: 700px;
-  margin: 0 auto 60px;
-}
+/* Sections */
+.hero{text-align:center;min-height:100vh;display:flex;align-items:center}
+.hero span{color:#3df2b4}
 
-/* CARDS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 30px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.card{background:#0d1320;border-radius:18px;padding:25px;border:1px solid #1c2333}
+.card:hover{border-color:#3df2b4;transform:translateY(-5px);transition:.3s}
 
-.card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 25px;
-  transition: .3s;
-}
-.card:hover {
-  transform: translateY(-6px);
-  border-color: #3df2b4;
-}
+/* Team */
+.team img{width:120px;height:120px;border-radius:50%;border:3px solid #3df2b4}
 
-/* TEAM */
-.team img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #3df2b4;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-footer {
-  padding: 40px;
-  text-align: center;
-  color: #aaa;
-  border-top: 1px solid #222;
-}
+/* Footer */
+footer{text-align:center;padding:40px;color:#999;border-top:1px solid #222}
 </style>
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade">
   <div class="container">
     <h1>ANTVERSE<br><span>AI-Driven Metaverse Economy</span></h1>
-    <p>Decentralized intelligence powering the next generation of digital economies, NFTs, and virtual societies.</p>
-    <div class="btns">
-      <a href="#token" class="btn-main">Explore Token</a>
-      <a href="#team" class="btn-outline">Meet the Team</a>
-    </div>
+    <p>Building the next generation of decentralized intelligence, digital assets, and virtual economies.</p>
+    <a href="#token" class="btn btn-main">Explore Token</a>
+    <a href="#team" class="btn btn-outline">Meet the Team</a>
+    <div id="price" style="margin-top:20px;font-size:20px;"></div>
   </div>
 </section>
 
 <!-- TOKEN -->
-<section id="token">
+<section id="token" class="fade">
   <div class="container">
-    <h2 class="section-title">Token Overview</h2>
-    <p class="section-sub">ANTVERSE token powers governance, rewards, and AI economic activity.</p>
+    <h2>ANTVERSE Token</h2>
+    <p>The fuel of the ecosystem — powering governance, AI, NFTs, and utility.</p>
 
     <div class="grid">
-      <div class="card"><h3>Symbol</h3><p>ANTVERSE</p></div>
       <div class="card"><h3>Network</h3><p>Solana</p></div>
-      <div class="card"><h3>Utility</h3><p>Governance • AI Rewards • NFTs</p></div>
-      <div class="card"><h3>Supply Model</h3><p>Deflationary + Utility Driven</p></div>
+      <div class="card"><h3>Utility</h3><p>Governance • AI • NFTs</p></div>
+      <div class="card"><h3>Token Model</h3><p>Deflationary + Utility Driven</p></div>
     </div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section id="team">
+<section id="team" class="fade">
   <div class="container">
-    <h2 class="section-title">Core Team</h2>
-    <p class="section-sub">Builders of the BMVERSE ecosystem</p>
-
+    <h2>Core Team</h2>
     <div class="grid team">
+
       <div class="card">
-        <img src="images/hesam.jpg" alt="Hesam Khalaj">
+        <img src="images/hesam.jpg">
         <h3>Hesam Khalaj</h3>
         <p>Founder & CEO</p>
-        <p><a href="https://x.com/bmchains">X</a> • <a href="https://linkedin.com/in/hesam-khalaj">LinkedIn</a></p>
       </div>
 
       <div class="card">
-        <img src="images/ehsan.jpg" alt="Ehsan Larani">
+        <img src="images/ehsan.jpg">
         <h3>Ehsan Larani</h3>
         <p>CFO & Marketing Advisor</p>
-        <p><a href="https://x.com/EhsanLarani">X</a> • <a href="https://tr.linkedin.com/in/ehsanlarani">LinkedIn</a></p>
       </div>
 
       <div class="card">
-        <img src="images/omid.jpg" alt="Omid Larani">
+        <img src="images/omid.jpg">
         <h3>Omid Larani</h3>
         <p>Lead Blockchain Engineer</p>
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
-  © <span id="year"></span> BMVERSE. All rights reserved.
+  © <span id="year"></span> BMVERSE — All Rights Reserved
 </footer>
 
 <script>
-  document.getElementById("year").innerText = new Date().getFullYear();
+// animation on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
+});
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// live token price
+async function loadPrice(){
+  try{
+    const r = await fetch("https://price.jup.ag/v4/price?ids=32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX");
+    const d = await r.json();
+    document.getElementById("price").innerHTML =
+      "Live Price: $" + d.data["32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX"].price.toFixed(6);
+  } catch(e){
+    document.getElementById("price").innerText = "Live price unavailable";
+  }
+}
+loadPrice();
+setInterval(loadPrice, 30000);
+
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
