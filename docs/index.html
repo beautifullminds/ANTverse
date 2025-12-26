@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BMverse | Ethereum‑X & ANTVERSE</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
   <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
   <style>
@@ -21,20 +21,23 @@
     iframe {
       width: 100%;
       height: 280px;
-      border: 1px solid #2c2c2c;
+      border: 1px solid #333;
       border-radius: 0.75rem;
     }
     .section-title {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+    }
+    .footer-link:hover {
+      color: #4ade80;
     }
   </style>
 </head>
+
 <body class="overflow-x-hidden">
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     AOS.init({ duration: 700, once: true });
   });
 </script>
@@ -44,18 +47,18 @@
   <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
     <div class="text-lg font-bold">BMverse</div>
     <nav class="space-x-6 text-sm">
-      <a href="#ethereumx-hero" class="hover:text-emerald-300">Ethereum‑X</a>
-      <a href="#antverse-hero" class="hover:text-emerald-300">ANTVERSE</a>
+      <a href="#ethereumx" class="hover:text-emerald-300">Ethereum‑X</a>
+      <a href="#antverse" class="hover:text-emerald-300">ANTVERSE</a>
       <a href="#team" class="hover:text-emerald-300">Team</a>
       <a href="#community" class="hover:text-emerald-300">Community</a>
     </nav>
   </div>
 </header>
 
-<main class="pt-20 space-y-16">
+<main class="pt-20 space-y-20">
 
-  <!-- ETHEREUM‑X HERO -->
-  <section id="ethereumx-hero" class="px-6 py-20">
+  <!-- Ethereum‑X Section -->
+  <section id="ethereumx" class="px-6 py-20">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div data-aos="fade-right" class="space-y-6">
         <h1 class="text-4xl font-bold">Ethereum‑X</h1>
@@ -65,19 +68,19 @@
         </p>
       </div>
       <div data-aos="fade-left" class="space-y-4 p-6 border border-white/10 rounded-2xl bg-white/5">
-        <h3 class="font-semibold text-lg">Ethereum‑X Core Benefits</h3>
+        <h3 class="font-semibold text-lg">Ethereum‑X Highlights</h3>
         <ul class="list-disc pl-5 text-white/80 space-y-2">
           <li>AI‑Enhanced Proof‑of‑Participation (AIPoP)</li>
           <li>3,000+ TPS & Low Fees</li>
           <li>Smart Context Contracts (AI‑optimized)</li>
           <li>Dual Yield: ETH + BMUSD</li>
-          <li>99.9% Sustainability</li>
+          <li>99.9% Efficiency + AI Scheduling</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ETHEREUM‑X COMPARISON -->
+  <!-- Ethereum‑X Comparison -->
   <section class="px-6 py-12">
     <div data-aos="fade-up" class="max-w-7xl mx-auto space-y-6">
       <h2 class="section-title">Ethereum 2.0 vs Ethereum‑X</h2>
@@ -96,7 +99,7 @@
             <tr><td class="p-2">Gas Cost</td><td class="p-2">Moderate</td><td class="p-2 font-semibold">Up to 90% cheaper</td></tr>
             <tr><td class="p-2">Smart Contracts</td><td class="p-2">EVM</td><td class="p-2 font-semibold">Smart Context Contracts</td></tr>
             <tr><td class="p-2">Staking</td><td class="p-2">ETH only</td><td class="p-2 font-semibold">Dual Yield</td></tr>
-            <tr><td class="p-2">Development</td><td class="p-2">Fragmented</td><td class="p-2 font-semibold">Unified SDK + AI audit</td></tr>
+            <tr><td class="p-2">Development</td><td class="p-2">Fragmented</td><td class="p-2 font-semibold">Unified SDK</td></tr>
             <tr><td class="p-2">Governance</td><td class="p-2">Off‑chain</td><td class="p-2 font-semibold">On‑chain quadratic voting</td></tr>
             <tr><td class="p-2">Sustainability</td><td class="p-2">~99%</td><td class="p-2 font-semibold">~99.9%</td></tr>
           </tbody>
@@ -105,13 +108,15 @@
     </div>
   </section>
 
-  <!-- ANTVERSE HERO -->
-  <section id="antverse-hero" class="px-6 py-20 bg-white/5">
+  <!-- ANTVERSE Hero -->
+  <section id="antverse" class="px-6 py-20 bg-white/5">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div data-aos="fade-right" class="space-y-6">
         <h1 class="text-4xl font-bold">ANTVERSE</h1>
         <p class="text-xl text-amber-300">AI‑Driven Metaverse Economy</p>
-        <p class="text-white/80">ANTVERSE connects gaming, DeFi, and AI economies through decentralized identity and mirror liquidity.</p>
+        <p class="text-white/80">
+          ANTVERSE connects gaming, DeFi, and AI economies through decentralized identity and mirror liquidity.
+        </p>
         <div class="flex gap-4">
           <a href="#" class="bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] rounded-xl hover:bg-emerald-400">Launch App</a>
           <a href="#antverse-token" class="border border-white/30 px-5 py-3 rounded-xl hover:border-emerald-300">Learn More</a>
@@ -131,7 +136,7 @@
     </div>
   </section>
 
-  <!-- ANTVERSE TOKEN -->
+  <!-- ANTVERSE Token Info -->
   <section id="antverse-token" class="px-6 py-16">
     <div data-aos="fade-up" class="max-w-7xl mx-auto space-y-8">
       <h2 class="section-title">ANTVERSE Token (Multi‑Chain)</h2>
@@ -152,7 +157,7 @@
     </div>
   </section>
 
-  <!-- CORE TEAM -->
+  <!-- Core Team -->
   <section id="team" class="px-6 py-16 bg-white/5">
     <div data-aos="fade-up" class="max-w-7xl mx-auto space-y-8 text-center">
       <h2 class="section-title">Core Team</h2>
@@ -186,20 +191,24 @@
 
         <div class="p-6 border border-white/10 rounded-2xl">
           <img src="https://via.placeholder.com/96" alt="Mehri Deldadeh" class="w-24 h-24 rounded-full mx-auto mb-3">
-          <p class="font-semibold">Mehri Deldadeh</p>
+          <p class="font-semibold">Mehri Deldадеh</p>
           <p class="text-sm text-white/70">Lead of Design</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->  
   <footer id="community" class="px-6 py-8 text-center text-sm text-white/60 border-t border-white/10">
-    <div class="space-x-4">
-      <a href="https://x.com/bmverseio" target="_blank">X</a>
-      <a href="https://github.com/beautifullminds" target="_blank">GitHub</a>
+    <div class="flex justify-center gap-6 mb-3">
+      <a href="https://x.com/bmverseio" class="footer-link">X</a>
+      <a href="https://www.linkedin.com/company/bmverse" class="footer-link">LinkedIn</a>
+      <a href="https://github.com/beautifullminds" class="footer-link">GitHub</a>
+      <a href="https://medium.com/@bmverseio" class="footer-link">Medium</a>
+      <a href="https://www.crunchbase.com/organization/bmverse" class="footer-link">Crunchbase</a>
+      <a href="https://www.f6s.com/bmverse" class="footer-link">F6S</a>
     </div>
-    <p class="mt-3">© 2025 BMverse — All rights reserved.</p>
+    <p>© 2025 BMverse — All rights reserved.</p>
   </footer>
 
 </main>
