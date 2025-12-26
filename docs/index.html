@@ -1,299 +1,392 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMverse – Ethereum‑X & ANTVERSE</title>
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-    <!-- React + React DOM -->
-    <script defer src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+// One-file React + Tailwind landing integrating the original page structure
+// with a two-slide experience: ANTVERSE and ETHEREUM‑X. Sections below the hero
+// swap their content based on the active slide.
+export default function BMverseLanding() {
+  type Slide = {
+    id: "antverse" | "ethereumx";
+    brand: string;
+    title: string;
+    tagline: string;
+    description: string;
+    badges: string[];
+    features: { title: string; body: string }[];
+    comparison: { headA: string; headB: string; rows: [string, string, string][] };
+    builders: string[];
+    theme: { from: string; to: string; accent: string };
+    primaryCta: string;
+    secondaryCta: string;
+  };
 
-    <!-- Framer Motion -->
-    <script defer src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  const slides: Slide[] = [
+    {
+      id: "ethereumx",
+      brand: "BMverse",
+      title: "Ethereum‑X",
+      tagline: "Where Ethereum Evolves Beyond Limits",
+      description:
+        "A next‑gen evolution layer designed for real‑time scalability, AI‑driven optimization, and a radically better developer & user experience — all powered by the BMverse ecosystem.",
+      badges: ["Finality +30%", "3,000+ TPS", "Gas −90%", "Dual‑Yield", "SCC", "99.9% Green"],
+      features: [
+        { title: "AI‑Enhanced PoP (AIPoP)", body: "Adaptive consensus that rewards real performance, eliminates high entry barriers, and improves finality." },
+        { title: "3,000+ TPS & Low Fees", body: "Native L2 acceleration and parallel validation to unlock high throughput at lower cost." },
+        { title: "Smart Context Contracts (SCC)", body: "AI‑optimized contracts auto‑tune gas, route to lowest‑cost paths, and support multi‑chain execution." },
+        { title: "Dual‑Yield Staking", body: "Predictable rewards designed for ETH + BMUSD without slashing risk." },
+        { title: "Sustainability First", body: "Adaptive node sleeping and AI power scheduling target ~99.9% less energy per tx." },
+        { title: "Bridge‑less Interop", body: "Unified multi‑chain wallet to move assets cross‑network without legacy bridges." },
+      ],
+      comparison: {
+        headA: "Ethereum 2.0",
+        headB: "Ethereum‑X",
+        rows: [
+          ["Consensus", "Proof‑of‑Stake", "AI‑Enhanced Proof‑of‑Participation"],
+          ["Speed", "15–30 TPS", "3,000+ TPS (native scaling)"],
+          ["Gas Cost", "Moderate", "Up to 90% cheaper"],
+          ["Smart Contracts", "EVM", "Smart Context Contracts (AI‑optimized)"],
+          ["Staking", "ETH only", "Dual Yield: ETH + BMUSD"],
+          ["Development", "Fragmented", "Unified SDK + AI audit"],
+          ["Governance", "Often off‑chain", "On‑chain quadratic voting"],
+          ["Sustainability", "~99% over PoW", "~99.9% + AI scheduling"],
+          ["Interoperability", "Bridges required", "Built‑in multi‑chain wallet"],
+        ],
+      },
+      builders: [
+        "Unified SDK for all networks",
+        "AI‑assisted audits & auto‑debug",
+        "Smart Context Contracts templates",
+        "Grants & ecosystem bounties",
+      ],
+      theme: { from: "from-emerald-300", to: "to-fuchsia-400", accent: "bg-emerald-400" },
+      primaryCta: "Get Early Access",
+      secondaryCta: "See the comparison",
+    },
+    {
+      id: "antverse",
+      brand: "BMverse",
+      title: "ANTVERSE",
+      tagline: "AI‑Driven Metaverse Economy",
+      description:
+        "ANTVERSE connects gaming, DeFi, and AI economies through decentralized identity and mirror liquidity. It powers smart worlds where every digital action creates real‑world value.",
+      badges: ["AI‑Worlds", "Playable NFTs", "Mirror Liquidity", "Cross‑Chain Social"],
+      features: [
+        { title: "AI‑Adaptive Worlds", body: "Dynamically tuning difficulty, rewards, and world logic from real‑time signals." },
+        { title: "Playable NFTs with Yield", body: "NFT avatars and items accrue in‑world + DeFi rewards with transparent on‑chain logic." },
+        { title: "DeFi Liquidity Mirroring", body: "Mirror LP positions across chains and DEXes to stabilize game economies." },
+        { title: "Cross‑Chain Social Tokens", body: "Creator & guild tokens portable across EVM + L2s with unified identity." },
+        { title: "BMUSD Integration", body: "Stable value for marketplaces, rentals, prizes, and subscriptions." },
+        { title: "Builder APIs", body: "SDKs for quests, drops, marketplace rules, and anti‑bot fairness." },
+      ],
+      comparison: {
+        headA: "Traditional Game Platforms",
+        headB: "ANTVERSE",
+        rows: [
+          ["Ownership", "Custodial, siloed", "On‑chain, user‑owned"],
+          ["Economy", "Closed, inflation‑prone", "Mirror liquidity + BMUSD"],
+          ["Interoperability", "Single‑world items", "Cross‑world/cross‑chain"],
+          ["Earnings", "Off‑platform only", "Playable NFTs with real yield"],
+          ["Governance", "Studio‑controlled", "Player & creator DAOs"],
+          ["Fraud/Bots", "Reactive bans", "AI anti‑bot + proofs"],
+        ],
+      },
+      builders: [
+        "Unity/Unreal kits + REST/JS SDK",
+        "Quest & reward graph templates",
+        "Marketplace + rental primitives",
+        "Analytics + anti‑bot modules",
+      ],
+      theme: { from: "from-amber-300", to: "to-pink-500", accent: "bg-amber-400" },
+      primaryCta: "Launch Your World",
+      secondaryCta: "See the advantages",
+    },
+  ];
 
-    <!-- Tailwind (CDN) -->
-    <script defer src="https://cdn.tailwindcss.com"></script>
+  const [index, setIndex] = useState(0);
+  const current = slides[index];
 
-    <style>
-      body {
-        background: #0b0f14;
-        color: #ffffff;
-        font-family: system-ui, sans-serif;
-      }
-      iframe {
-        width: 100%;
-        height: 300px;
-        border: 1px solid #333;
-        border-radius: 0.75rem;
-      }
-      code {
-        background: rgba(255,255,255,0.1);
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.375rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
+  const next = () => setIndex((i) => (i + 1) % slides.length);
+  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  const setById = (id: Slide["id"]) => setIndex(slides.findIndex((s) => s.id === id));
 
-    <script type="text/javascript">
-      const { useState } = React;
+  return (
+    <div className="min-h-screen w-full bg-[#0b0f14] text-white selection:bg-emerald-300/20 selection:text-emerald-100 relative overflow-hidden">
+      {/* Ambient glows */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className={`absolute -top-24 -left-24 h-96 w-96 rounded-full blur-3xl opacity-40 ${current.theme.accent}`} />
+        <div className={`absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-30 ${current.theme.accent}`} />
+      </div>
 
-      const slides = [
-        {
-          id: "ethereumx",
-          title: "Ethereum‑X",
-        },
-        {
-          id: "antverse",
-          title: "ANTVERSE",
-        },
-      ];
+      {/* Nav */}
+      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+        <div className="flex items-center gap-3">
+          <div className={`h-9 w-9 rounded-full ${current.theme.accent} ring-2 ring-white/10`} />
+          <span className="text-lg font-semibold tracking-wide">BMverse</span>
+        </div>
+        <nav className="hidden items-center gap-8 md:flex text-sm">
+          <button onClick={() => setById("antverse")} className={`hover:text-emerald-300 ${current.id === "antverse" ? "text-emerald-300" : "text-white/80"}`}>ANTVERSE</button>
+          <button onClick={() => setById("ethereumx")} className={`hover:text-emerald-300 ${current.id === "ethereumx" ? "text-emerald-300" : "text-white/80"}`}>ETHEREUM‑X</button>
+          <a href="#features" className="hover:text-emerald-300">Features</a>
+          <a href="#compare" className="hover:text-emerald-300">Comparison</a>
+          <a href="#builders" className="hover:text-emerald-300">For Builders</a>
+          <a href="#community" className="hover:text-emerald-300">Community</a>
+        </nav>
+        <div className="flex items-center gap-3">
+          <a
+            href="https://github.com/beautifullminds"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-xl border border-white/10 px-4 py-2 text-sm hover:border-emerald-400/40 hover:text-emerald-300"
+          >
+            GitHub
+          </a>
+          <a
+            href="#cta"
+            className="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400"
+          >
+            {current.primaryCta}
+          </a>
+        </div>
+      </header>
 
-      function App() {
-        const [tab, setTab] = useState("ethereumx");
-
-        return (
-          <div className="px-6 py-10 max-w-5xl mx-auto space-y-10">
-            {/* Header */}
-            <header className="flex justify-between items-center">
-              <h1 className="text-3xl font-bold">BMverse</h1>
-              <nav className="space-x-4">
-                {slides.map((s) => (
-                  <button
-                    key={s.id}
-                    onClick={() => setTab(s.id)}
-                    className={`font-medium ${
-                      tab === s.id
-                        ? "text-emerald-300"
-                        : "text-white/70 hover:text-emerald-300"
-                    }`}
-                  >
-                    {s.title}
-                  </button>
-                ))}
-              </nav>
-            </header>
-
-            {/* Ethereum‑X Content */}
-            {tab === "ethereumx" && (
-              <section className="space-y-6">
-                <h2 className="text-4xl font-bold">Ethereum‑X</h2>
-                <p className="text-2xl font-semibold text-emerald-300">
-                  “Where Ethereum Evolves Beyond Limits.”
-                </p>
-
-                <p>
-                  Ethereum‑X is the next-generation blockchain evolution by{" "}
-                  <b>BMverse</b>, designed to surpass Ethereum 2.0 through
-                  AI‑driven consensus, dynamic scalability, and true
-                  sustainability. It delivers performance, inclusivity, and
-                  cross‑chain simplicity — redefining what Ethereum can become.
-                </p>
-
-                {/* Overview Table */}
-                <div className="overflow-x-auto">
-                  <table className="w-full table-auto text-sm">
-                    <thead>
-                      <tr className="text-left border-b border-white/20">
-                        <th className="pb-2">Feature</th>
-                        <th className="pb-2">Ethereum 2.0</th>
-                        <th className="pb-2">Ethereum‑X (BMverse)</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-white/10">
-                      {[
-                        ["Consensus", "Proof‑of‑Stake (PoS)", "AI‑Enhanced Proof‑of‑Participation (AIPoP)"],
-                        ["Speed", "15 – 30 TPS", "3 000+ TPS (native scaling)"],
-                        ["Gas Cost", "Moderate", "Up to 90% cheaper"],
-                        ["Smart Contracts", "EVM", "Smart Context Contracts (AI‑optimized)"],
-                        ["Staking", "ETH only", "Dual Yield: ETH + BMUSD"],
-                        ["Development", "Fragmented", "Unified SDK + AI Audit"],
-                        ["Governance", "Off‑chain", "On‑chain Quadratic Voting"],
-                        ["Sustainability", "99% < PoW", "99.9% + AI scheduling"],
-                        ["Interoperability", "Bridges required", "Built‑in multi‑chain wallet"],
-                      ].map((row, i) => (
-                        <tr key={i}>
-                          <td className="py-2">{row[0]}</td>
-                          <td className="py-2 text-white/70">{row[1]}</td>
-                          <td className="py-2 font-semibold">{row[2]}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Sections */}
-                <article className="space-y-4">
-                  <h3 className="text-xl font-bold">Core Architecture</h3>
-                  <p>
-                    Ethereum‑X introduces dynamic scalability, AI‑driven
-                    optimization, and modular consensus adaptation far beyond
-                    Ethereum 2.0’s static validator model. It expands or
-                    compresses resources in real time for unmatched flexibility
-                    and speed.
-                  </p>
-
-                  <h3 className="text-xl font-bold">Consensus Mechanism — AIPoP</h3>
-                  <p>
-                    AI‑Enhanced Proof‑of‑Participation (AIPoP) rewards
-                    validators based on performance, not capital size:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li>Removes the 32 ETH minimum barrier.</li>
-                    <li>Achieves ≈ 30% faster block finality.</li>
-                    <li>Supports micro‑staking for global accessibility.</li>
-                  </ul>
-
-                  <h3 className="text-xl font-bold">Transaction Speed & Cost</h3>
-                  <p>
-                    • 3 000+ TPS via native L2 acceleration + parallel
-                    validation. <br />
-                    • Up to 90% lower fees — no bridges or multi‑layer gas
-                    costs.
-                  </p>
-
-                  <h3 className="text-xl font-bold">Smart Contract Intelligence</h3>
-                  <p>
-                    Smart Context Contracts (SCC) are AI‑aware and
-                    self‑optimizing:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li>Auto‑adjust gas.</li>
-                    <li>Enable multi‑chain execution.</li>
-                    <li>Route transactions to the lowest‑cost path.</li>
-                  </ul>
-
-                  <h3 className="text-xl font-bold">Token Economy & Staking</h3>
-                  <p>
-                    Dual‑yield staking rewards validators and holders in ETH
-                    (for security value) and BMUSD (for stable income). Predictable
-                    returns with no slashing risk.
-                  </p>
-
-                  <h3 className="text-xl font-bold">Developer Ecosystem</h3>
-                  <p>
-                    Unified SDK for all networks, AI‑auditing tools and
-                    auto‑debug assistants, and one‑click deployment with grant
-                    + bounty support.
-                  </p>
-
-                  <h3 className="text-xl font-bold">Sustainability & Efficiency</h3>
-                  <p>
-                    Through adaptive node sleeping and AI‑managed power
-                    scheduling, Ethereum‑X achieves 99.9% less energy use per
-                    transaction — a new benchmark in green blockchain tech.
-                  </p>
-
-                  <h3 className="text-xl font-bold">User Experience & Interoperability</h3>
-                  <p>
-                    Unified multi‑chain wallet with bridge‑free transfers and
-                    native BMUSD integration for stable pricing across dApps.
-                  </p>
-
-                  <h3 className="text-xl font-bold">Governance</h3>
-                  <p>
-                    On‑chain quadratic voting empowers users, validators, and
-                    developers with transparent decision‑making.
-                  </p>
-                </article>
-              </section>
+      {/* HERO Slider */}
+      <section className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
+            <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+            {current.id === "ethereumx" ? "Live R&D • Ethereum‑X by BMverse" : "Live • ANTVERSE by BMverse"}
+          </div>
+          <h1 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
+            {current.title}
+            <span className={`block bg-gradient-to-r ${current.theme.from} ${current.theme.to} bg-clip-text text-transparent`}>
+              {current.tagline}
+            </span>
+          </h1>
+          <p className="mt-5 max-w-xl text-base text-white/80 md:text-lg">{current.description}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#cta" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">
+              {current.primaryCta}
+            </a>
+            <a href="#compare" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">
+              {current.secondaryCta}
+            </a>
+          </div>
+          <div className="mt-6 flex items-center gap-6 text-sm text-white/60">
+            {current.id === "ethereumx" ? (
+              <>
+                <span>BMUSD integrated</span><span>•</span><span>AI‑audited SDK</span><span>•</span><span>Bridge‑less interop</span>
+              </>
+            ) : (
+              <>
+                <span>Playable NFTs</span><span>•</span><span>Mirror Liquidity</span><span>•</span><span>Creator Tokens</span>
+              </>
             )}
+          </div>
+        </div>
 
-            {/* ANTVERSE Content */}
-            {tab === "antverse" && (
-              <section className="space-y-6">
-                <h2 className="text-4xl font-bold">ANTVERSE</h2>
-                <p className="text-2xl font-semibold text-emerald-300">
-                  AI‑Driven Metaverse Economy
-                </p>
-                <p>
-                  ANTVERSE connects gaming, DeFi, and AI through decentralized
-                  identity and mirror liquidity. It powers smart worlds where
-                  every digital action creates real‑world value.
-                </p>
-
-                {/* ANTVERSE Token Multi‑Chain */}
-                <section className="space-y-4">
-                  <h3 className="text-2xl font-bold">ANTVERSE Token (Multi‑Chain)</h3>
-                  <p>
-                    🔹 Solana Token Mint:{" "}
-                    <code>32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX</code>
-                  </p>
-                  <iframe
-                    src="https://dexcheck.ai/app/solana/chart/3UC7ZHBPoe1GMpLHX3vod8RTexGfwpYL42N4sAgLraA4"
-                    title="ANTVERSE Solana Chart"
-                  ></iframe>
-
-                  <p>
-                    🔹 TON Jetton:<br />
-                    <code>EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7</code>
-                  </p>
-                  <iframe
-                    src="https://dyor.io/token/EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7"
-                    title="ANTVERSE TON Chart"
-                  ></iframe>
-                </section>
-              </section>
-            )}
-
-            {/* Team Section */}
-            <section className="space-y-4">
-              <h2 className="text-3xl font-bold">Meet the Team</h2>
-              {[
-                [
-                  "Hesam Khalaj",
-                  "CEO & Founder",
-                  "https://x.com/bmchains",
-                  "https://www.linkedin.com/in/hesam-khalaj",
-                ],
-                [
-                  "Ehsan Larani",
-                  "CFO & Marketing Advisor",
-                  "https://x.com/EhsanLarani",
-                  "https://tr.linkedin.com/in/ehsanlarani",
-                ],
-                ["Touraj Larani", "Technical Developer", "", ""],
-                ["Mehri Deldadeh", "Lead Designer", "", ""],
-              ].map(([n, r, x, l], i) => (
-                <div key={i} className="space-y-1">
-                  <p className="font-bold">{n}</p>
-                  <p className="text-white/70">{r}</p>
-                  <div className="space-x-4 text-emerald-300">
-                    {x && (
-                      <a href={x} target="_blank" rel="noopener noreferrer">
-                        X
-                      </a>
-                    )}
-                    {l && (
-                      <a href={l} target="_blank" rel="noopener noreferrer">
-                        LinkedIn
-                      </a>
-                    )}
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-6 shadow-2xl ring-1 ring-white/5"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {current.badges.map((k, i) => (
+                  <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center text-sm">
+                    {k}
                   </div>
+                ))}
+              </div>
+              <div className={`mt-6 rounded-2xl border ${current.id === "ethereumx" ? "border-emerald-400/30 bg-emerald-500/10 text-emerald-200" : "border-amber-400/30 bg-amber-500/10 text-amber-100"} p-4`}>
+                <p className="text-sm">
+                  {current.id === "ethereumx"
+                    ? "Smart Context Contracts continuously self‑optimize with real‑time network signals."
+                    : "Mirror liquidity keeps game markets stable while staying fully on‑chain."}
+                </p>
+              </div>
+              <div className="mt-6 flex justify-between">
+                <button onClick={prev} className="rounded-full border border-white/20 px-4 py-2 text-sm hover:border-emerald-300/40">← Prev</button>
+                <button onClick={next} className="rounded-full border border-white/20 px-4 py-2 text-sm hover:border-emerald-300/40">Next →</button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          <div className={`absolute -bottom-6 -right-6 h-28 w-28 animate-pulse rounded-full ${current.theme.accent} blur-2xl`} />
+        </div>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <h2 className="text-2xl font-semibold md:text-3xl">Key Features</h2>
+        <p className="mt-4 max-w-3xl text-white/80">
+          {current.id === "ethereumx"
+            ? "Ethereum‑X advances performance, cost, and user experience through AI‑guided networking and SCC."
+            : "ANTVERSE fuses gaming, DeFi, and AI — giving players, creators, and studios programmable economies."}
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {current.features.map((f, idx) => (
+            <div key={idx} className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+              <h3 className={`text-lg font-semibold ${current.id === "ethereumx" ? "text-emerald-300" : "text-amber-300"}`}>{f.title}</h3>
+              <p className="mt-3 text-sm text-white/80">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Comparison */}
+      <section id="compare" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">Comparison</h2>
+            <p className="mt-3 max-w-2xl text-white/80">
+              {current.id === "ethereumx"
+                ? "A quick snapshot of how Ethereum‑X advances core dimensions of performance, cost, and UX."
+                : "How ANTVERSE differs from traditional game platforms in ownership, economics, and interoperability."}
+            </p>
+          </div>
+          <a href="#cta" className="hidden rounded-xl border border-white/15 px-4 py-2 text-sm hover:border-emerald-300/40 hover:text-emerald-200 md:inline-block">{current.primaryCta}</a>
+        </div>
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
+          <table className="w-full min-w-[720px] border-collapse bg-white/5 text-sm">
+            <thead>
+              <tr className="bg-white/10 text-left text-white">
+                <th className="p-4">Feature</th>
+                <th className="p-4">{current.comparison.headA}</th>
+                <th className="p-4">{current.comparison.headB}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {current.comparison.rows.map((row, i) => (
+                <tr key={i} className="odd:bg-white/0 even:bg-white/5">
+                  <td className="p-4 font-medium text-white/90">{row[0]}</td>
+                  <td className="p-4 text-white/75">{row[1]}</td>
+                  <td className={`p-4 ${current.id === "ethereumx" ? "text-emerald-200" : "text-amber-100"}`}>{row[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Builders */}
+      <section id="builders" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="grid items-start gap-10 md:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">Built for Builders</h2>
+            <p className="mt-4 max-w-xl text-white/80">
+              {current.id === "ethereumx"
+                ? "Ship faster with a unified, AI‑audited SDK, one‑click deploys, and SCC templates."
+                : "Drop‑in kits for games & worlds — quests, drops, economies, rentals, and anti‑bot fairness."}
+            </p>
+            <ul className="mt-6 space-y-3 text-white/80">
+              {current.builders.map((b, i) => (
+                <li key={i} className="flex items-start gap-3"><span className={`mt-1 inline-block h-1.5 w-1.5 rounded-full ${current.id === "ethereumx" ? "bg-emerald-400" : "bg-amber-400"}`} /> {b}</li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#cta" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">{current.id === "ethereumx" ? "Apply for Grants" : "Get Builder Kit"}</a>
+              <a href="https://github.com/beautifullminds" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">Explore Repos</a>
+            </div>
+          </div>
+          <div className="relative rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="grid grid-cols-2 gap-4">
+              {(current.id === "ethereumx"
+                ? ["One‑click deploy", "AI audit", "Auto‑debug", "SDK templates", "SCC kit", "Wallet API"]
+                : ["Unity/Unreal", "Reward graph", "Marketplace", "Rentals", "Analytics", "Anti‑bot"]
+              ).map((t, i) => (
+                <div key={i} className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/0 p-4 text-center">
+                  <span className="text-sm text-white/85">{t}</span>
                 </div>
               ))}
-            </section>
-
-            {/* Footer */}
-            <footer className="text-center text-white/60 py-8 border-t border-white/10">
-              © {new Date().getFullYear()} BMverse • Built with 💡
-              <br />
-              Follow us on{" "}
-              <a
-                href="https://x.com/bmverseio"
-                className="text-emerald-300"
-                target="_blank"
-              >
-                @bmverseio
-              </a>
-            </footer>
+            </div>
+            <p className="mt-6 text-sm text-white/70">
+              {current.id === "ethereumx"
+                ? "Start with SCC templates and ship features that self‑optimize gas, latency, and routing."
+                : "Instrument quests and markets with on‑chain rules and anti‑bot scoring."}
+            </p>
           </div>
-        );
-      }
+        </div>
+      </section>
 
-      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-    </script>
-  </body>
-</html>
+      {/* Community */}
+      <section id="community" className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-8">
+          <div className="grid items-center gap-8 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-semibold md:text-3xl">Powering a Shared Economy</h2>
+              <p className="mt-4 max-w-xl text-white/80">
+                BMUSD brings stable value across dApps, games, and DeFi in the BMverse. With bridge‑less transfers and predictable staking rewards, builders get reliable economics from day one.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3 text-sm text-white/70">
+                <a href="https://x.com/bmverseio" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-4 py-2 hover:border-emerald-300/40 hover:text-emerald-200">X / Twitter</a>
+                <a href="https://t.me/xprv9s" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-4 py-2 hover:border-emerald-300/40 hover:text-emerald-200">Telegram</a>
+                <a href="https://bmverse.io" className="rounded-xl border border-white/15 px-4 py-2 hover:border-emerald-300/40 hover:text-emerald-200">Website</a>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/80">
+                <p className={`${current.id === "ethereumx" ? "text-emerald-300" : "text-amber-300"} font-semibold`}>{current.id === "ethereumx" ? "Join the Ethereum‑X community" : "Join the ANTVERSE community"}</p>
+                <p className="mt-2">Be first to test the unified wallet, templates, and grants/builder kits.</p>
+                <NewsletterForm />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="cta" className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        <div className="rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/10 to-fuchsia-500/10 p-10 text-center">
+          <h3 className="text-2xl font-semibold md:text-3xl">Ready to build with BMverse?</h3>
+          <p className="mx-auto mt-3 max-w-2xl text-white/80">
+            {current.id === "ethereumx"
+              ? "Get the developer preview, experiment with Smart Context Contracts, and help shape AI‑optimized blockchains."
+              : "Launch your AI‑driven world with playable NFTs, mirror liquidity, and creator tokens."}
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <a href="https://github.com/beautifullminds" target="_blank" rel="noreferrer" className="rounded-xl border border-white/15 px-5 py-3 hover:border-emerald-300/40 hover:text-emerald-200">View on GitHub</a>
+            <a href="#community" className="rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-[#0b0f14] shadow-lg shadow-emerald-500/30 hover:bg-emerald-400">Join Community</a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="relative z-10 mx-auto max-w-7xl px-6 pb-10">
+        <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 md:grid-cols-2">
+          <p className="text-sm text-white/60">© {new Date().getFullYear()} BMverse — ANTVERSE & ETHEREUM‑X</p>
+          <div className="text-sm text-white/60 md:text-right">
+            <a href="mailto:ceo@bmverse.io" className="hover:text-emerald-300">ceo@bmverse.io</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  return (
+    <form
+      className="mt-4 flex gap-3"
+      onSubmit={(e) => {
+        e.preventDefault();
+        alert(`Thanks! We'll notify ${email} when early access opens.`);
+      }}
+    >
+      <input
+        type="email"
+        required
+        placeholder="your@email.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+      />
+      <button className="rounded-xl bg-emerald-500 px-4 font-semibold text-[#0b0f14] hover:bg-emerald-400">
+        Notify me
+      </button>
+    </form>
+  );
+}
