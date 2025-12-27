@@ -7,157 +7,132 @@
 
 <style>
   * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
   }
 
   body {
-    background: radial-gradient(circle at top, #0e1625, #06080d);
+    margin: 0;
+    background: radial-gradient(circle at top, #0b1020, #05070c);
     color: #ffffff;
-    line-height: 1.6;
   }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+  a { color: #35ffd2; text-decoration: none; }
 
-  /* HEADER */
   header {
-    padding: 18px 24px;
+    padding: 24px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .logo {
+  header h1 {
+    font-size: 22px;
     font-weight: 700;
-    font-size: 20px;
-  }
-
-  .nav-btn {
-    background: #19e6a3;
-    color: #000;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: 600;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 70px 20px 40px;
-    max-width: 1100px;
-    margin: auto;
-  }
-
-  .badge {
-    display: inline-block;
-    background: rgba(0,255,180,0.15);
-    color: #6ef3c5;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 14px;
-    margin-bottom: 14px;
-  }
-
-  h1 {
-    font-size: 40px;
-    margin: 12px 0;
-    font-weight: 800;
-  }
-
-  p.lead {
-    color: #cbd5e1;
-    max-width: 650px;
-    margin-bottom: 24px;
-  }
-
-  .cta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
   }
 
   .btn {
     padding: 12px 18px;
     border-radius: 10px;
     font-weight: 600;
+    border: none;
     cursor: pointer;
-    display: inline-block;
   }
 
   .btn-primary {
-    background: #00f0b5;
+    background: #00ffb3;
     color: #000;
   }
 
   .btn-outline {
-    border: 1px solid #2f3b52;
-    color: #dce3f1;
+    border: 1px solid #2dd4bf;
+    color: #2dd4bf;
+    background: transparent;
   }
 
-  /* CARDS */
-  .cards {
-    margin-top: 40px;
+  .hero {
+    padding: 80px 20px 60px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(0,255,180,0.15);
+    border-radius: 30px;
+    color: #7dffe5;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 44px;
+    margin: 16px 0;
+  }
+
+  .subtitle {
+    max-width: 760px;
+    font-size: 18px;
+    color: #c7d2fe;
+  }
+
+  .cta {
+    margin-top: 25px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    gap: 20px;
+    margin-top: 40px;
   }
 
   .card {
-    background: #0f1624;
-    padding: 18px;
+    background: #0f172a;
+    padding: 20px;
     border-radius: 14px;
-    border: 1px solid #1e2a3a;
+    border: 1px solid #1e293b;
   }
 
-  .card h4 {
-    margin-bottom: 6px;
-    font-size: 16px;
+  .card h3 {
+    margin-bottom: 10px;
   }
 
-  .card p {
-    font-size: 14px;
-    color: #b6c2d1;
-  }
-
-  /* SECTION */
-  section {
+  .section {
     max-width: 1100px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
   }
 
-  h2 {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  /* TEAM */
-  .team {
+  .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
   }
 
-  .member {
-    background: #0f1624;
-    padding: 20px;
-    border-radius: 14px;
+  .team-card {
+    background: linear-gradient(145deg, #0b1322, #101a2c);
+    padding: 22px;
+    border-radius: 16px;
     text-align: center;
+    box-shadow: 0 0 30px rgba(0,255,200,0.08);
   }
 
-  .member h4 {
-    margin-top: 10px;
+  .team-avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00ffc6, #00b3ff);
   }
 
   footer {
+    padding: 40px;
     text-align: center;
-    padding: 40px 20px;
-    color: #9aa4b2;
-    font-size: 14px;
+    color: #9ca3af;
   }
 </style>
 </head>
@@ -165,72 +140,75 @@
 <body>
 
 <header>
-  <div class="logo">BMverse</div>
-  <div class="nav">
+  <h1>BMVERSE</h1>
+  <div>
     <a class="btn btn-outline" href="#">GitHub</a>
-    <a class="btn btn-primary" href="#">Launch Your World</a>
+    <a class="btn btn-primary" href="#">Launch World</a>
   </div>
 </header>
 
 <section class="hero">
-  <div class="badge">Live • ANTVERSE by BMVERSE</div>
+  <span class="badge">Live • Ethereum-X by BMVERSE</span>
   <h1>Ethereum-X<br/>Where Ethereum Evolves Beyond Limits</h1>
-  <p class="lead">
-    A next-generation blockchain designed for real-time scalability, AI optimization,
-    and decentralized intelligence — powered by the BMVERSE ecosystem.
+  <p class="subtitle">
+    A next-generation blockchain designed for real-time scalability, AI-driven optimization,
+    and sustainable decentralized systems.
   </p>
 
   <div class="cta">
     <a class="btn btn-primary">Get Early Access</a>
-    <a class="btn btn-outline">See the Comparison</a>
+    <a class="btn btn-outline">See Comparison</a>
   </div>
 
-  <div class="cards">
+  <div class="grid">
     <div class="card">
-      <h4>AI-Driven Execution</h4>
-      <p>Smart contracts adapt in real time using on-chain intelligence.</p>
+      <h3>AI-Driven Execution</h3>
+      <p>Adaptive smart contracts optimized in real time.</p>
     </div>
     <div class="card">
-      <h4>3,000+ TPS</h4>
-      <p>Ultra-fast throughput with near-zero latency.</p>
+      <h3>3,000+ TPS</h3>
+      <p>High-performance transaction throughput.</p>
     </div>
     <div class="card">
-      <h4>Dual Yield</h4>
-      <p>Earn with ETH + BMUSD simultaneously.</p>
+      <h3>Dual Yield</h3>
+      <p>Earn via ETH + BMUSD mechanisms.</p>
     </div>
     <div class="card">
-      <h4>Green Network</h4>
-      <p>99.9% lower energy usage than PoW chains.</p>
+      <h3>Green Network</h3>
+      <p>99.9% energy reduction with adaptive consensus.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Ethereum-X Architecture</h2>
-  <p>
-    Ethereum-X introduces AI-driven validation, adaptive execution layers,
-    and multi-chain interoperability — enabling the next era of decentralized systems.
-  </p>
-</section>
+<section class="section">
+  <h2>Core Team</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <h3>Hesam Khalaj</h3>
+      <p>Founder & CEO</p>
+      <a href="https://x.com/bmchains" target="_blank">X</a> ·
+      <a href="https://www.linkedin.com/in/hesam-khalaj" target="_blank">LinkedIn</a>
+    </div>
 
-<section>
-  <h2>Team</h2>
-  <div class="team">
-    <div class="member">
-      <h4>Founder</h4>
-      <p>BMVERSE Core Team</p>
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <h3>Ehsan Larani</h3>
+      <p>CFO & Marketing Advisor</p>
+      <a href="https://x.com/EhsanLarani" target="_blank">X</a> ·
+      <a href="https://www.linkedin.com/in/ehsanlarani" target="_blank">LinkedIn</a>
     </div>
-    <div class="member">
-      <h4>Blockchain Engineers</h4>
-      <p>Protocol & Infrastructure</p>
+
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <h3>Touraj Larani</h3>
+      <p>Technical Developer</p>
     </div>
-    <div class="member">
-      <h4>AI Research</h4>
-      <p>Optimization & Intelligence</p>
-    </div>
-    <div class="member">
-      <h4>Community</h4>
-      <p>Growth & Ecosystem</p>
+
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <h3>Mehri Deldadeh</h3>
+      <p>Lead Designer</p>
     </div>
   </div>
 </section>
