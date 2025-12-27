@@ -7,132 +7,164 @@
 
 <style>
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Inter", system-ui, sans-serif;
   }
 
   body {
-    margin: 0;
     background: radial-gradient(circle at top, #0b1020, #05070c);
-    color: #ffffff;
+    color: #fff;
+    overflow-x: hidden;
   }
 
-  a { color: #35ffd2; text-decoration: none; }
+  a { text-decoration: none; color: inherit; }
 
   header {
-    padding: 24px 40px;
+    padding: 22px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  header h1 {
-    font-size: 22px;
+  .logo {
     font-weight: 700;
+    font-size: 20px;
   }
 
   .btn {
     padding: 12px 18px;
     border-radius: 10px;
     font-weight: 600;
-    border: none;
     cursor: pointer;
   }
 
   .btn-primary {
-    background: #00ffb3;
+    background: #00ffc6;
     color: #000;
   }
 
   .btn-outline {
-    border: 1px solid #2dd4bf;
-    color: #2dd4bf;
-    background: transparent;
+    border: 1px solid #2de1c2;
+    color: #2de1c2;
   }
 
+  /* HERO */
   .hero {
-    padding: 80px 20px 60px;
     max-width: 1100px;
     margin: auto;
+    padding: 80px 20px 40px;
   }
 
   .badge {
-    display: inline-block;
+    background: rgba(0,255,180,.15);
+    color: #79ffe5;
     padding: 6px 14px;
-    background: rgba(0,255,180,0.15);
-    border-radius: 30px;
-    color: #7dffe5;
+    border-radius: 20px;
+    display: inline-block;
     font-size: 14px;
   }
 
   h1 {
-    font-size: 44px;
-    margin: 16px 0;
+    font-size: 46px;
+    margin: 15px 0;
   }
 
   .subtitle {
-    max-width: 760px;
+    max-width: 750px;
+    color: #cbd5e1;
     font-size: 18px;
-    color: #c7d2fe;
   }
 
   .cta {
     margin-top: 25px;
     display: flex;
-    gap: 14px;
+    gap: 15px;
     flex-wrap: wrap;
   }
 
-  .grid {
+  /* FEATURE CARDS */
+  .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 18px;
     margin-top: 40px;
   }
 
-  .card {
-    background: #0f172a;
+  .feature {
+    background: #0f1624;
     padding: 20px;
     border-radius: 14px;
-    border: 1px solid #1e293b;
+    border: 1px solid #1f2b3d;
+    transition: 0.4s;
   }
 
-  .card h3 {
-    margin-bottom: 10px;
+  .feature:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 40px rgba(0,255,200,0.2);
   }
 
-  .section {
+  /* TEAM */
+  .team {
+    padding: 90px 20px;
     max-width: 1100px;
-    margin: 80px auto;
-    padding: 0 20px;
+    margin: auto;
+  }
+
+  .team h2 {
+    text-align: center;
+    margin-bottom: 40px;
   }
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 24px;
   }
 
-  .team-card {
-    background: linear-gradient(145deg, #0b1322, #101a2c);
-    padding: 22px;
-    border-radius: 16px;
+  .member {
+    background: linear-gradient(145deg, #0b1220, #101a2b);
+    padding: 24px;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(0,255,200,0.08);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
   }
 
-  .team-avatar {
+  .member.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .avatar {
     width: 90px;
     height: 90px;
-    margin: 0 auto 14px;
+    margin: 0 auto 15px;
     border-radius: 50%;
     background: linear-gradient(135deg, #00ffc6, #00b3ff);
   }
 
+  .member h3 {
+    margin-bottom: 4px;
+  }
+
+  .member p {
+    font-size: 14px;
+    color: #9fb3c8;
+  }
+
+  .links a {
+    margin: 0 6px;
+    color: #7df9ff;
+    font-size: 14px;
+  }
+
   footer {
-    padding: 40px;
     text-align: center;
-    color: #9ca3af;
+    padding: 40px;
+    color: #94a3b8;
   }
 </style>
 </head>
@@ -140,7 +172,7 @@
 <body>
 
 <header>
-  <h1>BMVERSE</h1>
+  <div class="logo">BMVERSE</div>
   <div>
     <a class="btn btn-outline" href="#">GitHub</a>
     <a class="btn btn-primary" href="#">Launch World</a>
@@ -148,11 +180,11 @@
 </header>
 
 <section class="hero">
-  <span class="badge">Live • Ethereum-X by BMVERSE</span>
-  <h1>Ethereum-X<br/>Where Ethereum Evolves Beyond Limits</h1>
+  <span class="badge">Live • Ethereum-X</span>
+  <h1>Where Ethereum Evolves Beyond Limits</h1>
   <p class="subtitle">
-    A next-generation blockchain designed for real-time scalability, AI-driven optimization,
-    and sustainable decentralized systems.
+    A next-generation blockchain combining AI intelligence, scalability,
+    and sustainable performance for the decentralized future.
   </p>
 
   <div class="cta">
@@ -160,53 +192,58 @@
     <a class="btn btn-outline">See Comparison</a>
   </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>AI-Driven Execution</h3>
+  <div class="features">
+    <div class="feature">
+      <h4>AI-Driven Execution</h4>
       <p>Adaptive smart contracts optimized in real time.</p>
     </div>
-    <div class="card">
-      <h3>3,000+ TPS</h3>
-      <p>High-performance transaction throughput.</p>
+    <div class="feature">
+      <h4>3,000+ TPS</h4>
+      <p>High-performance throughput.</p>
     </div>
-    <div class="card">
-      <h3>Dual Yield</h3>
-      <p>Earn via ETH + BMUSD mechanisms.</p>
+    <div class="feature">
+      <h4>Dual Yield</h4>
+      <p>Earn from ETH and BMUSD.</p>
     </div>
-    <div class="card">
-      <h3>Green Network</h3>
-      <p>99.9% energy reduction with adaptive consensus.</p>
+    <div class="feature">
+      <h4>Green Network</h4>
+      <p>99.9% energy efficiency.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="team">
   <h2>Core Team</h2>
+
   <div class="team-grid">
-    <div class="team-card">
-      <div class="team-avatar"></div>
+    <div class="member">
+      <div class="avatar"></div>
       <h3>Hesam Khalaj</h3>
       <p>Founder & CEO</p>
-      <a href="https://x.com/bmchains" target="_blank">X</a> ·
-      <a href="https://www.linkedin.com/in/hesam-khalaj" target="_blank">LinkedIn</a>
+      <div class="links">
+        <a href="https://x.com/bmchains">X</a>
+        <a href="https://www.linkedin.com/in/hesam-khalaj">LinkedIn</a>
+      </div>
     </div>
 
-    <div class="team-card">
-      <div class="team-avatar"></div>
+    <div class="member">
+      <div class="avatar"></div>
       <h3>Ehsan Larani</h3>
       <p>CFO & Marketing Advisor</p>
-      <a href="https://x.com/EhsanLarani" target="_blank">X</a> ·
-      <a href="https://www.linkedin.com/in/ehsanlarani" target="_blank">LinkedIn</a>
+      <div class="links">
+        <a href="https://x.com/EhsanLarani">X</a>
+        <a href="https://www.linkedin.com/in/ehsanlarani">LinkedIn</a>
+      </div>
     </div>
 
-    <div class="team-card">
-      <div class="team-avatar"></div>
+    <div class="member">
+      <div class="avatar"></div>
       <h3>Touraj Larani</h3>
       <p>Technical Developer</p>
     </div>
 
-    <div class="team-card">
-      <div class="team-avatar"></div>
+    <div class="member">
+      <div class="avatar"></div>
       <h3>Mehri Deldadeh</h3>
       <p>Lead Designer</p>
     </div>
@@ -214,8 +251,18 @@
 </section>
 
 <footer>
-  © 2025 BMVERSE — Ethereum-X. All rights reserved.
+  © 2025 BMVERSE — Ethereum-X
 </footer>
+
+<script>
+  const cards = document.querySelectorAll('.member');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('show');
+    });
+  });
+  cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
