@@ -3,226 +3,219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethereum‑X | BMverse</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-</head>
-<body class="bg-[#0b0f14] text-white font-sans leading-relaxed">
+  <title>BMVERSE – Ethereum-X</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f14;
+      color: #ffffff;
+      line-height: 1.7;
+    }
 
-<!-- Navbar -->
-<header class="p-6 flex justify-between items-center max-w-7xl mx-auto">
-  <div class="text-xl font-bold text-emerald-400">BMverse</div>
-  <nav class="space-x-4 text-sm">
-    <a href="#ethereumx" class="hover:text-emerald-300">Ethereum‑X</a>
-    <a href="#antverse" class="hover:text-emerald-300">Antverse</a>
-    <a href="#team" class="hover:text-emerald-300">Team</a>
-    <a href="#token" class="hover:text-emerald-300">Token</a>
-    <a href="#footer" class="hover:text-emerald-300">Social</a>
-  </nav>
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      background: radial-gradient(circle at top, #1e293b, #020617);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 60px;
+      font-size: 2rem;
+    }
+
+    p {
+      max-width: 900px;
+      margin: 10px auto;
+      color: #cbd5e1;
+    }
+
+    .btns {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 26px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn.primary {
+      background: #38bdf8;
+      color: #000;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #1e293b;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #111827;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 40px 20px;
+      color: #9ca3af;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>ETHEREUM-X</h1>
+  <p>Where Ethereum Evolves Beyond Limits</p>
+
+  <div class="btns">
+    <a href="#overview" class="btn primary">Explore Ethereum-X</a>
+    <a href="#docs" class="btn">View Whitepaper</a>
+  </div>
 </header>
 
-<!-- Ethereum-X Hero Section -->
-<section id="ethereumx" class="max-w-5xl mx-auto px-6 py-16" data-aos="fade-up">
-  <h1 class="text-4xl font-bold text-emerald-400 mb-4">Ethereum-X — BMverse</h1>
-  <blockquote class="text-white/80 italic mb-6">“Where Ethereum Evolves Beyond Limits.”</blockquote>
-  <p class="text-white/90 mb-4">Ethereum-X is the next-generation blockchain evolution by <strong>BMverse</strong>, designed to surpass Ethereum 2.0 through AI-driven consensus, dynamic scalability, and true sustainability.</p>
-  <p class="text-white/90 mb-6">It delivers performance, inclusivity, and cross-chain simplicity — redefining what Ethereum can become.</p>
+<section id="overview">
+  <h2>Ethereum-X Overview</h2>
+  <p>
+    Ethereum-X is the next-generation blockchain evolution by <b>BMVERSE</b>, 
+    designed to surpass Ethereum 2.0 through AI-driven consensus, dynamic scalability, 
+    and sustainable performance.
+  </p>
+
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Ethereum 2.0</th>
+      <th>Ethereum-X</th>
+    </tr>
+    <tr>
+      <td>Consensus</td>
+      <td>Proof-of-Stake</td>
+      <td>AI-Enhanced Proof-of-Participation</td>
+    </tr>
+    <tr>
+      <td>Speed</td>
+      <td>15–30 TPS</td>
+      <td>3,000+ TPS</td>
+    </tr>
+    <tr>
+      <td>Gas Fees</td>
+      <td>Moderate</td>
+      <td>Up to 90% lower</td>
+    </tr>
+    <tr>
+      <td>Smart Contracts</td>
+      <td>EVM</td>
+      <td>AI-Optimized Contracts</td>
+    </tr>
+    <tr>
+      <td>Staking</td>
+      <td>ETH only</td>
+      <td>ETH + BMUSD</td>
+    </tr>
+    <tr>
+      <td>Governance</td>
+      <td>Off-chain</td>
+      <td>On-chain Quadratic Voting</td>
+    </tr>
+  </table>
 </section>
 
-<!-- Overview Table -->
-<section class="max-w-5xl mx-auto px-6 py-8" data-aos="fade-up">
-  <h2 class="text-2xl font-semibold text-white mb-4">🌐 Overview</h2>
-  <div class="overflow-auto">
-    <table class="min-w-full table-auto text-sm border border-white/20">
-      <thead>
-        <tr class="bg-white/10">
-          <th class="p-3 border border-white/10">Feature</th>
-          <th class="p-3 border border-white/10">Ethereum 2.0</th>
-          <th class="p-3 border border-white/10">Ethereum-X (BMverse)</th>
-        </tr>
-      </thead>
-      <tbody class="text-white/80">
-        <tr><td class="border p-3">Consensus</td><td class="border p-3">Proof-of-Stake (PoS)</td><td class="border p-3">AI-Enhanced Proof-of-Participation (AIPoP)</td></tr>
-        <tr><td class="border p-3">Speed</td><td class="border p-3">15 – 30 TPS</td><td class="border p-3">3 000 + TPS</td></tr>
-        <tr><td class="border p-3">Gas Cost</td><td class="border p-3">Moderate</td><td class="border p-3">Up to 90% cheaper</td></tr>
-        <tr><td class="border p-3">Smart Contracts</td><td class="border p-3">EVM</td><td class="border p-3">Smart Context Contracts (AI-optimized)</td></tr>
-        <tr><td class="border p-3">Staking</td><td class="border p-3">ETH only</td><td class="border p-3">Dual Yield: ETH + BMUSD</td></tr>
-        <tr><td class="border p-3">Development</td><td class="border p-3">Fragmented</td><td class="border p-3">Unified SDK + AI Audit</td></tr>
-        <tr><td class="border p-3">Governance</td><td class="border p-3">Off-chain</td><td class="border p-3">On-chain Quadratic Voting</td></tr>
-        <tr><td class="border p-3">Sustainability</td><td class="border p-3">99% < PoW</td><td class="border p-3">99.9% efficient + AI scheduling</td></tr>
-        <tr><td class="border p-3">Interoperability</td><td class="border p-3">Bridges required</td><td class="border p-3">Built-in multi-chain wallet</td></tr>
-      </tbody>
-    </table>
-  </div>
+<section>
+  <h2>Core Architecture</h2>
+  <p>
+    Ethereum-X introduces dynamic scalability, AI-driven optimization,
+    and modular consensus layers. The network adapts in real time to workload
+    demands, optimizing throughput and energy usage.
+  </p>
 </section>
 
-<!-- Final Verdict -->
-<section class="max-w-5xl mx-auto px-6 py-8 text-white/90" data-aos="fade-up">
-  <p><strong>Final Verdict:</strong> Ethereum-X transcends Ethereum 2.0 by merging <strong>AI intelligence</strong>, <strong>sustainable design</strong>, and <strong>real-time adaptability</strong> into one unified network.</p>
+<section>
+  <h2>Consensus — AIPoP</h2>
+  <p>
+    AI-Enhanced Proof-of-Participation rewards validators based on real contribution,
+    not capital size. It enables micro-staking, improves decentralization, and
+    reduces validator dominance.
+  </p>
 </section>
 
-<!-- More ETH-X Sections: Core Architecture, AIPoP, SCC, etc. -->
-<section class="max-w-5xl mx-auto px-6 py-8 text-white/90 space-y-8" data-aos="fade-up">
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">🧩 Core Architecture</h3>
-    <p>Ethereum-X introduces <strong>dynamic scalability</strong>, <strong>AI-driven optimization</strong>, and <strong>modular consensus adaptation</strong>, far beyond Ethereum 2.0’s static validator model.</p>
-    <p>It expands or compresses resources in real time for unmatched flexibility and speed.</p>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">⚙️ Consensus Mechanism — AIPoP</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li><strong>AI-Enhanced Proof-of-Participation (AIPoP)</strong> rewards validators based on performance, not capital size.</li>
-      <li>Removes the 32 ETH minimum barrier.</li>
-      <li>Achieves ≈ 30% faster block finality.</li>
-      <li>Supports micro-staking for global accessibility.</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">🚀 Transaction Speed & Cost</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li><strong>3 000 + TPS</strong> via native L2 acceleration + parallel validation.</li>
-      <li><strong>Up to 90 % lower fees</strong> — no bridges or multi-layer gas costs.</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">🤖 Smart Contract Intelligence</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li><strong>Smart Context Contracts (SCC)</strong> are AI-aware and self-optimizing.</li>
-      <li>Auto-adjust gas.</li>
-      <li>Enable multi-chain execution.</li>
-      <li>Route transactions to the lowest-cost path.</li>
-    </ul>
-  </div>
-</section>
-<!-- Continue ETH-X Details -->
-<section class="max-w-5xl mx-auto px-6 py-8 text-white/90 space-y-8" data-aos="fade-up">
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">💰 Token Economy & Staking</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li>Dual-yield staking rewards validators and holders in <strong>ETH</strong> and <strong>BMUSD</strong>.</li>
-      <li>Predictable returns with no slashing risk.</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">👩‍💻 Developer Ecosystem</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li>Unified SDK for all networks.</li>
-      <li>AI-auditing tools and auto-debug assistants.</li>
-      <li>One-click deployment with grant + bounty support.</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">🌱 Sustainability & Efficiency</h3>
-    <p>Through <strong>adaptive node sleeping</strong> and <strong>AI-managed power scheduling</strong>, Ethereum-X achieves <strong>99.9% less energy use</strong> per transaction.</p>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">🔗 User Experience & Interoperability</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li>Unified multi-chain wallet with bridge-free transfers.</li>
-      <li>BMUSD ensures stable pricing across all dApps.</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">🗳 Governance</h3>
-    <p>On-chain <strong>quadratic voting</strong> empowers users, validators, and developers alike.</p>
-  </div>
-
-  <div>
-    <h3 class="text-xl font-semibold text-emerald-300 mb-2">📚 Documents & Resources</h3>
-    <ul class="list-disc pl-5 space-y-1">
-      <li><code>docs/EthereumX_vs_Ethereum2_Comparison.pdf</code> — Comparison Report</li>
-      <li><code>docs/ethereum2_vs_ethereumx.md</code> — Markdown version</li>
-      <li><code>CONTRIBUTING.md</code> — Contributor Guide</li>
-      <li><code>LICENSE</code> — MIT License</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Quick Start -->
-<section class="max-w-5xl mx-auto px-6 py-8 text-white/90" data-aos="fade-up">
-  <h3 class="text-xl font-semibold text-emerald-300 mb-3">🧠 Quick Start</h3>
-  <pre class="bg-black/30 text-white text-sm p-4 rounded-md overflow-auto">
-git clone https://github.com/beautifullminds/Ethereum-X--BMverse.git
-cd Ethereum-X--BMverse
-python -m http.server 8000
-# Open http://localhost:8000/docs/
-  </pre>
-</section>
-
-<!-- ANTVERSE Section -->
-<section id="antverse" class="max-w-5xl mx-auto px-6 py-16" data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-amber-400 mb-4">ANTVERSE</h2>
-  <p class="mb-4 text-white/90">ANTVERSE connects gaming, DeFi, and AI economies through decentralized identity and mirror liquidity. It powers smart worlds where every digital action creates real‑world value.</p>
-</section>
-
-<!-- Token Info -->
-<section id="token" class="max-w-5xl mx-auto px-6 py-6 text-white/90 space-y-4" data-aos="fade-up">
-  <h3 class="text-xl font-semibold text-amber-300">Antverse Token Info</h3>
-  <ul class="list-disc pl-5">
-    <li><strong>Solana:</strong> 32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX</li>
-    <li><strong>TON Jetton:</strong> EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7</li>
-    <li><strong>BEP20:</strong> Available on BSC (contract coming soon)</li>
+<section>
+  <h2>Performance & Efficiency</h2>
+  <ul>
+    <li>3,000+ TPS throughput</li>
+    <li>Up to 90% lower gas fees</li>
+    <li>AI-optimized execution paths</li>
+    <li>Green energy–aware scheduling</li>
   </ul>
 </section>
 
-<!-- Team Section -->
-<section id="team" class="max-w-5xl mx-auto px-6 py-16 text-white" data-aos="fade-up">
-  <h2 class="text-2xl font-semibold mb-8">👥 Core Team</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-    <div>
-      <img src="docs/images/hesam.jpg" alt="Hesam Khalaj" class="w-24 h-24 rounded-full mx-auto mb-3">
-      <h3 class="text-lg font-semibold">Hesam Khalaj</h3>
-      <p class="text-white/70">CEO, CTO & Founder</p>
-      <div class="text-sm mt-2">
-        <a href="https://x.com/bmchains" target="_blank" class="text-emerald-300 hover:underline">X</a> •
-        <a href="https://www.linkedin.com/in/hesam-khalaj" target="_blank" class="text-emerald-300 hover:underline">LinkedIn</a>
-      </div>
-    </div>
-    <div>
-      <img src="docs/images/ehsan.jpg" alt="Ehsan Larani" class="w-24 h-24 rounded-full mx-auto mb-3">
-      <h3 class="text-lg font-semibold">Ehsan Larani</h3>
-      <p class="text-white/70">CFO & Marketing Advisor</p>
-      <div class="text-sm mt-2">
-        <a href="https://x.com/EhsanLarani" target="_blank" class="text-emerald-300 hover:underline">X</a> •
-        <a href="https://tr.linkedin.com/in/ehsanlarani" target="_blank" class="text-emerald-300 hover:underline">LinkedIn</a>
-      </div>
-    </div>
-    <div>
-      <h3 class="text-lg font-semibold">Touraj Larani</h3>
-      <p class="text-white/70">Technical Developer</p>
-    </div>
-    <div>
-      <h3 class="text-lg font-semibold">Mehri Deldadeh</h3>
-      <p class="text-white/70">Lead Designer</p>
-    </div>
-  </div>
+<section>
+  <h2>Smart Contracts</h2>
+  <p>
+    Smart Context Contracts automatically optimize gas usage,
+    detect execution risks, and adapt across chains.
+  </p>
 </section>
 
-<!-- Footer -->
-<footer id="footer" class="bg-black/30 text-white/80 py-12 px-6">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-    <p>© 2025 BMverse. All rights reserved.</p>
-    <div class="space-x-4 text-sm">
-      <a href="https://x.com/bmverseio" target="_blank" class="hover:text-emerald-300">X</a>
-      <a href="https://linkedin.com/company/bmverse" target="_blank" class="hover:text-emerald-300">LinkedIn</a>
-      <a href="https://github.com/beautifullminds" target="_blank" class="hover:text-emerald-300">GitHub</a>
-      <a href="https://www.crunchbase.com/organization/bmverse" target="_blank" class="hover:text-emerald-300">Crunchbase</a>
-      <a href="https://medium.com/@bmverse" target="_blank" class="hover:text-emerald-300">Medium</a>
-      <a href="https://www.f6s.com/bmverse" target="_blank" class="hover:text-emerald-300">F6S</a>
-    </div>
-  </div>
-</footer>
+<section>
+  <h2>Token Economy</h2>
+  <p>
+    Dual-reward system providing:
+  </p>
+  <ul>
+    <li><b>ETH</b> — base security value</li>
+    <li><b>BMUSD</b> — stable yield token</li>
+  </ul>
+</section>
 
-<!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+<section>
+  <h2>ANTVERSE Ecosystem</h2>
+  <p>
+    ANTVERSE is a living digital ecosystem combining AI, NFTs, DeFi,
+    and interactive environments into one unified experience.
+  </p>
+</section>
+
+<section>
+  <h2>Governance</h2>
+  <p>
+    On-chain quadratic voting ensures fair, transparent, and decentralized
+    protocol evolution.
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 BMVERSE — All Rights Reserved</p>
+  <p>
+    <a href="https://bmverse.io" target="_blank">Website</a> ·
+    <a href="https://x.com/bmverseio" target="_blank">X (Twitter)</a>
+  </p>
+</footer>
 
 </body>
 </html>
