@@ -2,164 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>One‑X | BMverse</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BMverse – Ethereum‑X & ANTVERSE</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- AOS Animate on Scroll -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body class="bg-[#0b0f14] text-white font-sans scroll-smooth">
+<body class="bg-[#0b0f14] text-white font-sans">
 
-<!-- AOS Init -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 800, once: true });
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({ duration: 700, once: true });
+  });
 </script>
 
-<!-- Navbar -->
-<header class="fixed top-0 left-0 w-full z-50 bg-[#0b0f14]/80 backdrop-blur-sm border-b border-white/10 px-6 py-4">
+<!-- NAVBAR -->
+<header class="fixed w-full bg-[#0b0f14]/90 backdrop-blur-md border-b border-white/10 z-50 px-6 py-4">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-emerald-400">One‑X</h1>
-    <nav class="space-x-4 text-sm">
-      <a href="#hero" class="hover:text-emerald-300">Home</a>
-      <a href="#features" class="hover:text-emerald-300">Features</a>
-      <a href="#compare" class="hover:text-emerald-300">Ethereum-X</a>
+    <h1 class="text-xl font-bold text-emerald-400">BMverse</h1>
+    <nav class="space-x-6 text-sm">
+      <a href="#ethereumx" class="hover:text-emerald-300">Ethereum‑X</a>
+      <a href="#antverse" class="hover:text-emerald-300">ANTVERSE</a>
       <a href="#team" class="hover:text-emerald-300">Team</a>
-      <a href="#footer" class="hover:text-emerald-300">Contact</a>
+      <a href="#footer" class="hover:text-emerald-300">Social</a>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
-<section id="hero" class="pt-24 pb-20 px-6" data-aos="fade-up">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-    <div>
-      <h1 class="text-5xl font-bold leading-tight mb-4">Find the Next Crypto Gem on <span class="text-emerald-400">One‑X</span></h1>
-      <p class="text-lg text-white/70 mb-6">
-        Advanced analytics, real-time data, secure trading & AI-powered insights — all in one platform.
+<main class="pt-20 space-y-20">
+
+  <!-- Ethereum‑X Section -->
+  <section id="ethereumx" class="px-6 py-16" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto space-y-6">
+      <h1 class="text-4xl font-bold text-emerald-300">Ethereum‑X — BMverse</h1>
+      <blockquote class="italic text-white/80">
+        “Where Ethereum Evolves Beyond Limits.”
+      </blockquote>
+      <p class="text-white/90">
+        Ethereum‑X is the next-generation blockchain evolution by <strong>BMverse</strong>, designed
+        to surpass Ethereum 2.0 through AI-driven consensus, dynamic scalability, and true sustainability.
       </p>
-      <div class="flex gap-4">
-        <a href="#" class="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-6 py-3 rounded-lg shadow-md">Launch App</a>
-        <a href="#compare" class="border border-white/30 px-6 py-3 rounded-lg hover:border-emerald-300">Explore Ethereum-X</a>
-      </div>
+      <p class="text-white/90">It delivers performance, inclusivity, and cross-chain simplicity — redefining what Ethereum can become.</p>
     </div>
-    <div>
-      <div class="w-full h-80 bg-gradient-to-br from-emerald-500 to-indigo-500 rounded-2xl shadow-2xl"></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Features -->
-<section id="features" class="px-6 py-20 bg-white/5" data-aos="fade-up">
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-emerald-300 mb-8">Navigate the Market with Confidence</h2>
-    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="p-6 bg-white/10 rounded-xl border border-white/20" data-aos="zoom-in">
-        <h3 class="font-semibold text-xl mb-2">AI‑Powered Insights</h3>
-        <p class="text-white/70">Predictive analytics that uncover early opportunities before others do.</p>
-      </div>
-      <div class="p-6 bg-white/10 rounded-xl border border-white/20" data-aos="zoom-in">
-        <h3 class="font-semibold text-xl mb-2">Bank‑Grade Security</h3>
-        <p class="text-white/70">Industry-grade security ensures assets are always protected.</p>
-      </div>
-      <div class="p-6 bg-white/10 rounded-xl border border-white/20" data-aos="zoom-in">
-        <h3 class="font-semibold text-xl mb-2">Cross‑Chain Trading</h3>
-        <p class="text-white/70">Trade across ecosystems instantly — no bridges required.</p>
+  <!-- Ethereum‑X Overview Table -->
+  <section class="px-6 py-12" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-semibold text-emerald-300 mb-4">🌐 Overview</h2>
+      <div class="overflow-x-auto">
+        <table class="table-auto w-full text-sm border-collapse border border-white/20">
+          <thead class="bg-white/10 text-left">
+            <tr>
+              <th class="p-3 border border-white/10">Feature</th>
+              <th class="p-3 border border-white/10">Ethereum 2.0</th>
+              <th class="p-3 border border-white/10">Ethereum‑X (BMverse)</th>
+            </tr>
+          </thead>
+          <tbody class="text-white/80">
+            <tr><td class="p-2 border">Consensus</td><td class="p-2 border">PoS</td><td class="p-2 border">AI‑Enhanced PoP</td></tr>
+            <tr><td class="p-2 border">Speed</td><td class="p-2 border">15‑30 TPS</td><td class="p-2 border">3,000+ TPS</td></tr>
+            <tr><td class="p-2 border">Gas Cost</td><td class="p-2 border">Moderate</td><td class="p-2 border">Up to 90% cheaper</td></tr>
+            <tr><td class="p-2 border">Smart Contracts</td><td class="p-2 border">EVM</td><td class="p-2 border">Smart Context Contracts</td></tr>
+            <tr><td class="p-2 border">Staking</td><td class="p-2 border">ETH only</td><td class="p-2 border">Dual Yield: ETH + BMUSD</td></tr>
+            <tr><td class="p-2 border">Development</td><td class="p-2 border">Fragmented</td><td class="p-2 border">Unified SDK + AI audit</td></tr>
+            <tr><td class="p-2 border">Governance</td><td class="p-2 border">Off‑chain</td><td class="p-2 border">On‑chain quadratic voting</td></tr>
+            <tr><td class="p-2 border">Sustainability</td><td class="p-2 border">~99%</td><td class="p-2 border">~99.9% efficient</td></tr>
+            <tr><td class="p-2 border">Interoperability</td><td class="p-2 border">Bridges required</td><td class="p-2 border">Built‑in multi‑chain wallet</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Ethereum-X Comparison -->
-<section id="compare" class="px-6 py-20" data-aos="fade-up">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-emerald-300 mb-6 text-center">Ethereum-X vs Ethereum 2.0</h2>
-    <div class="overflow-auto">
-      <table class="min-w-full border-collapse border border-white/20 text-sm text-white/80">
-        <thead class="bg-white/10">
-          <tr>
-            <th class="border px-4 py-2">Feature</th>
-            <th class="border px-4 py-2">Ethereum 2.0</th>
-            <th class="border px-4 py-2 text-emerald-300">Ethereum-X</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="border px-4 py-2">Consensus</td><td class="border px-4 py-2">PoS</td><td class="border px-4 py-2">AI-Enhanced PoP</td></tr>
-          <tr><td class="border px-4 py-2">Speed</td><td class="border px-4 py-2">15–30 TPS</td><td class="border px-4 py-2">3,000+ TPS</td></tr>
-          <tr><td class="border px-4 py-2">Gas Cost</td><td class="border px-4 py-2">Moderate</td><td class="border px-4 py-2">Up to 90% cheaper</td></tr>
-          <tr><td class="border px-4 py-2">Smart Contracts</td><td class="border px-4 py-2">EVM</td><td class="border px-4 py-2">AI Smart Context</td></tr>
-          <tr><td class="border px-4 py-2">Staking</td><td class="border px-4 py-2">ETH only</td><td class="border px-4 py-2">ETH + BMUSD</td></tr>
-          <tr><td class="border px-4 py-2">Governance</td><td class="border px-4 py-2">Off-chain</td><td class="border px-4 py-2">On-chain Quadratic</td></tr>
-          <tr><td class="border px-4 py-2">Sustainability</td><td class="border px-4 py-2">99% < PoW</td><td class="border px-4 py-2">99.9% Efficient</td></tr>
-        </tbody>
-      </table>
+  <!-- Ethereum‑X Core Details -->
+  <section class="px-6 py-12 space-y-6" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-xl font-semibold text-emerald-300">🧩 Core Architecture</h3>
+      <p class="text-white/80">Ethereum‑X introduces dynamic scalability, AI‑driven optimization, and modular consensus adaptation — expanding or compressing resources in real time for unmatched flexibility and speed.</p>
     </div>
 
-    <div class="mt-10">
-      <h3 class="text-xl font-bold text-white mb-2">📚 Documentation</h3>
-      <ul class="list-disc list-inside text-white/70">
-        <li><a href="docs/EthereumX_vs_Ethereum2_Comparison.pdf" class="text-emerald-400 underline">Comparison Report (PDF)</a></li>
-        <li><a href="docs/ethereum2_vs_ethereumx.md" class="text-emerald-400 underline">Markdown Version</a></li>
-        <li><a href="docs/CONTRIBUTING.md" class="text-emerald-400 underline">Contributor Guide</a></li>
+    <div class="max-w-5xl mx-auto space-y-4">
+      <h3 class="text-xl font-semibold text-emerald-300">⚙️ Consensus Mechanism — AIPoP</h3>
+      <ul class="list-disc pl-5 text-white/80">
+        <li>AI‑Enhanced Proof‑of‑Participation rewards validators by performance, not capital size.</li>
+        <li>Removes the 32 ETH minimum barrier.</li>
+        <li>≈ 30% faster finality.</li>
+        <li>Supports micro‑staking for global accessibility.</li>
       </ul>
     </div>
-  </div>
-</section>
 
-<!-- Team -->
-<section id="team" class="px-6 py-20 bg-white/5" data-aos="fade-up">
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-emerald-300 mb-8">Core Team</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-      <div data-aos="zoom-in">
-        <img src="docs/images/hesam.jpg" class="w-24 h-24 mx-auto rounded-full border border-white/20" alt="Hesam Khalaj" />
-        <h3 class="mt-3 font-semibold">Hesam Khalaj</h3>
-        <p class="text-sm text-white/70">CEO & Founder</p>
-        <div class="mt-1 space-x-2 text-xs">
-          <a href="https://x.com/bmchains" class="text-emerald-400 underline">X</a>
-          <a href="https://linkedin.com/in/hesam-khalaj" class="text-emerald-400 underline">LinkedIn</a>
-        </div>
+    <div class="max-w-5xl mx-auto space-y-4">
+      <h3 class="text-xl font-semibold text-emerald-300">🤖 Smart Contract Intelligence</h3>
+      <ul class="list-disc pl-5 text-white/80">
+        <li>Smart Context Contracts (SCC) auto‑adjust gas & route transactions to the lowest‑cost path.</li>
+        <li>AI‑aware & self‑optimizing for multi‑chain execution.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ANTVERSE Section -->
+  <section id="antverse" class="px-6 py-16 bg-white/5" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-amber-300 text-center mb-6">ANTVERSE</h2>
+    <p class="max-w-3xl mx-auto text-white/80 text-center">ANTVERSE connects gaming, DeFi, and AI economies through decentralized identity and mirror liquidity — powering smart worlds where every digital action creates real value.</p>
+  </section>
+
+  <!-- ANTVERSE Token Info -->
+  <section id="token" class="px-6 py-16" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto space-y-8">
+      <h3 class="text-2xl font-semibold text-amber-300">ANTVERSE Token (Multi‑Chain)</h3>
+
+      <div class="space-y-4">
+        <p><strong>Solana Token Mint:</strong></p>
+        <code class="block text-sm text-white/80 break-all">32aDAbrF7JM2s2gmtXpHXgXPpejgDNxB9KQgP3ZmtbZX</code>
+        <iframe src="https://dexcheck.ai/app/solana/chart/3UC7ZHBPoe1GMpLHX3vod8RTexGfwpYL42N4sAgLraA4" class="rounded-xl border border-white/20"></iframe>
       </div>
-      <div data-aos="zoom-in">
-        <img src="docs/images/ehsan.jpg" class="w-24 h-24 mx-auto rounded-full border border-white/20" alt="Ehsan Larani" />
-        <h3 class="mt-3 font-semibold">Ehsan Larani</h3>
-        <p class="text-sm text-white/70">CFO & Marketing Advisor</p>
-        <div class="mt-1 space-x-2 text-xs">
-          <a href="https://x.com/EhsanLarani" class="text-emerald-400 underline">X</a>
-          <a href="https://tr.linkedin.com/in/ehsanlarani" class="text-emerald-400 underline">LinkedIn</a>
-        </div>
-      </div>
-      <div data-aos="zoom-in">
-        <img src="https://via.placeholder.com/120" class="w-24 h-24 mx-auto rounded-full border border-white/20" alt="Touraj" />
-        <h3 class="mt-3 font-semibold">Touraj Larani</h3>
-        <p class="text-sm text-white/70">Technical Developer</p>
-      </div>
-      <div data-aos="zoom-in">
-        <img src="https://via.placeholder.com/120" class="w-24 h-24 mx-auto rounded-full border border-white/20" alt="Mehri" />
-        <h3 class="mt-3 font-semibold">Mehri Deldadeh</h3>
-        <p class="text-sm text-white/70">Lead Designer</p>
+
+      <div class="space-y-4">
+        <p><strong>TON Network (Jetton):</strong></p>
+        <code class="block text-sm text-white/80 break-all">EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7</code>
+        <iframe src="https://dyor.io/token/EQCsBTJh1stPUoMSHuoqle9RNITvt44nic3gj6JA4QLUySh7" class="rounded-xl border border-white/20"></iframe>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer id="footer" class="bg-[#0a0d11] px-6 py-12 text-center text-white/60">
-  <div class="space-y-4">
-    <div class="space-x-4">
-      <a href="https://x.com/bmverseio" class="hover:text-emerald-300">X</a>
-      <a href="#" class="hover:text-emerald-300">LinkedIn</a>
-      <a href="https://github.com/beautifullminds" class="hover:text-emerald-300">GitHub</a>
-      <a href="#" class="hover:text-emerald-300">Medium</a>
-      <a href="#" class="hover:text-emerald-300">Crunchbase</a>
-      <a href="#" class="hover:text-emerald-300">F6S</a>
+  <!-- Team -->
+  <section id="team" class="px-6 py-20 bg-white/5" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto text-center space-y-8">
+      <h2 class="text-3xl font-bold text-emerald-300">Core Team</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <!-- Hesam -->
+        <div data-aos="zoom-in">
+          <img src="docs/images/hesam.jpg" alt="Hesam Khalaj" class="w-24 h-24 rounded-full mx-auto border border-white/20" />
+          <h3 class="mt-3 font-semibold">Hesam Khalaj</h3>
+          <p class="text-sm text-white/70">CEO, CTO & Founder</p>
+          <div class="mt-2 space-x-3 text-xs">
+            <a href="https://x.com/bmchains" target="_blank" class="underline text-emerald-300">X</a>
+            <a href="https://www.linkedin.com/in/hesam-khalaj" target="_blank" class="underline text-emerald-300">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Ehsan -->
+        <div data-aos="zoom-in">
+          <img src="docs/images/ehsan.jpg" alt="Ehsan Larani" class="w-24 h-24 rounded-full mx-auto border border-white/20" />
+          <h3 class="mt-3 font-semibold">Ehsan Larani</h3>
+          <p class="text-sm text-white/70">CFO & Marketing Advisor</p>
+          <div class="mt-2 space-x-3 text-xs">
+            <a href="https://x.com/EhsanLarani" target="_blank" class="underline text-emerald-300">X</a>
+            <a href="https://tr.linkedin.com/in/ehsanlarani" target="_blank" class="underline text-emerald-300">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Touraj -->
+        <div data-aos="zoom-in">
+          <img src="https://via.placeholder.com/120" alt="Touraj Larani" class="w-24 h-24 rounded-full mx-auto border border-white/20" />
+          <h3 class="mt-3 font-semibold">Touraj Larani</h3>
+          <p class="text-sm text-white/70">Technical Developer</p>
+        </div>
+
+        <!-- Mehri -->
+        <div data-aos="zoom-in">
+          <img src="https://via.placeholder.com/120" alt="Mehri Deldadeh" class="w-24 h-24 rounded-full mx-auto border border-white/20" />
+          <h3 class="mt-3 font-semibold">Mehri Deldadeh</h3>
+          <p class="text-sm text-white/70">Lead of Design</p>
+        </div>
+
+      </div>
     </div>
-    <p class="text-sm">&copy; 2025 One‑X by BMverse. All rights reserved.</p>
-  </div>
-</footer>
+  </section>
 
+  <!-- Footer -->
+  <footer id="footer" class="bg-[#0a0d11] px-6 py-12 text-center text-white/60">
+    <div class="space-y-4">
+      <div class="space-x-4">
+        <a href="https://x.com/bmverseio" class="hover:text-emerald-300">X</a>
+        <a href="https://www.linkedin.com/company/bmverse" class="hover:text-emerald-300">LinkedIn</a>
+        <a href="https://github.com/beautifullminds" class="hover:text-emerald-300">GitHub</a>
+        <a href="https://medium.com/@bmverseio" class="hover:text-emerald-300">Medium</a>
+        <a href="https://www.crunchbase.com/organization/bmverse" class="hover:text-emerald-300">Crunchbase</a>
+        <a href="https://www.f6s.com/bmverse" class="hover:text-emerald-300">F6S</a>
+      </div>
+      <p class="text-sm">&copy; 2025 BMverse — All rights reserved.</p>
+    </div>
+  </footer>
+
+</main>
 </body>
 </html>
